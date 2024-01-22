@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link type="text/css" rel="stylesheet" href="normalize.css" />
+  <link rel = "stylesheet" href = "style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <style>
+    @media screen and (max-width: 500px){
+      .split img {
+        width: 350px;
+        height: 450px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="navbar">
+      <div  class="margin-left-20px">
+        <h1>TRAVELFAR</h1>
+      </div>
+    </div>
+  </nav>
+
+  <img src="TravelFar_picture.jpg" alt="Picture of plane flying around the world" class="center">
+  
+  <div class="main-content">
+    <div class="center-text-30px">
+      How far can you travel?<br>
+      Sign up and compete with thousands of other flyers!
+    </div>
+    <div class="align-center">
+      <div class="button-container">
+        <a href="login.html">
+          <div class="font-size-30px">
+            <button class="left-button">LOGIN</button>
+          </div>
+        </a>
+        <a href="signup.html">
+          <div class="font-size-30px">
+            <button class="right-button">SIGN UP</button>
+          </div>
+        </a>
+      </div>
+      <div class="container podium">
+        <div class="podium__item">
+          <p class="podium__city">Annecy</p>
+          <div class="podium__rank second">2</div>
+        </div>
+        <div class="podium__item">
+          <p class="podium__city">Saint-Gervais</p>
+          <div class="podium__rank first">
+            <svg class="podium__number" viewBox="0 0 27.476 75.03" xmlns="http://www.w3.org/2000/svg">
+            <g transform="matrix(1, 0, 0, 1, 214.957736, -43.117417)">
+              <path class="st8" d="M -198.928 43.419 C -200.528 47.919 -203.528 51.819 -207.828 55.219 C -210.528 57.319 -213.028 58.819 -215.428 60.019 L -215.428 72.819 C -210.328 70.619 -205.628 67.819 -201.628 64.119 L -201.628 117.219 L -187.528 117.219 L -187.528 43.419 L -198.928 43.419 L -198.928 43.419 Z" style="fill: #000;"/>
+            </g>
+          </svg>
+          </div>
+        </div>
+        <div class="podium__item">
+          <p class="podium__city">Clermont-Ferrand Essentielle</p>
+          <div class="podium__rank third">3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
