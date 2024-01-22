@@ -1,195 +1,197 @@
-   h1 {
-    color:#414b98;
-   }
+h1 {
+  color:#414b98;
+ }
 
-   .font-size-30px {
-    font-size: 30px;
-   }
-   
-   .margin-left-20px {
-    margin-left: 20px;
-   }
+ .font-size-30px {
+  font-size: 30px;
+ }
+ 
+ .margin-left-20px {
+  margin-left: 20px;
+ }
 
-   .travel-far-picture {
-    width: 500px;
-    height: auto;
-   }
+ .travel-far-picture {
+  width: 500px;
+  height: auto;
+ }
 
-  .shadow {
-    width: 200px;
-    height: 300px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-  }
+.shadow {
+  width: 200px;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
 
-   .container {
+ .container {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 10%;
+  justify-content: center;
+}
+
+ .container-left {
+  display: flex;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  align-items: center;
+}
+
+.container-right {
     display: flex;
-    align-items: flex-end;
-    margin-top: 10%;
-    justify-content: center;
-  }
-
-   .container-left {
-    display: flex;
+    padding-right: 13%;
+    padding-left: 10%;
     padding-top: 5%;
     padding-bottom: 5%;
-    align-items: center;
-  }
+}
 
-  .container-right {
-      display: flex;
-      padding-right: 13%;
-      padding-left: 10%;
-      padding-top: 5%;
-      padding-bottom: 5%;
-  }
+.split {
+  margin-left: 2%;
+  margin-right: 2.5%;
+  padding: 0px 2.5% 7% 2.5%;
+}
 
-  .split {
-    margin-left: 2%;
-    margin-right: 2.5%;
-    padding: 0px 2.5% 7% 2.5%;
-  }
+.split-right { 
+  margin-left: 2%;
+  margin-right: 2.5%;
+  padding: 0px 2.5% 7% 2.5%;
+}
 
-  .split-right { 
-    margin-left: 2%;
-    margin-right: 2.5%;
-    padding: 0px 2.5% 7% 2.5%;
-  }
-  
-  .align-center {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-  }
-   
-   .main-content {
-    margin: 10% 15%;
-    margin-bottom: 0%;
-   }
-   
-   .center-text-30px {
-    font-size: 30px;
-    text-align: center;
-   }
+.align-center {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+ 
+ .main-content {
+  margin: 10% 15%;
+  margin-bottom: 0%;
+ }
+ 
+ .center-text-30px {
+  font-size: 30px;
+  text-align: center;
+ }
 
-   .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    height: 60%;
-    border-radius: 5%;
-  }
-   
-   .navbar {
-    overflow: hidden;
-    background-color: #b7d4ff;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-  }
-  
-  /* Links inside the navbar */
-  .navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change background on mouse-over */
-  .navbar a:hover {
-    background: #ddd;
-    color: black;
-  }
-  
-  /* Main content */
-  .main {
-    margin-top: 30px; /* Add a top margin to avoid content overlay */
-  }
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 60%;
+  border-radius: 5%;
+}
+ 
+ .navbar {
+  overflow: hidden;
+  background-color: #b7d4ff;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
 
-  button {
-    display: inline-block;
-  }
-  .button-container {
-    margin: 10%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .left-button {
-    width: 250px;
-    height: 100px;
-    border-radius: 100%;
-    margin-left: 20px
-  }
-  
-  .right-button {
-    width: 250px;
-    height: 100px;
-    border-radius: 100%;
-    margin-right: 20px;
-  }
-  
-  .podium__item {
-    width: 200px;
-  }
-  
-  .podium__rank {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-    color: #fff;
-  }
-  
-  .podium__city {
-    text-align: center;
-    padding: 0 .5rem;
-  }
-  
-  .podium__number {
-    width: 27px;
-    height: 75px;
-  }
-  
-  .podium .first {
-    min-height: 300px;
-    background: #FFF5B1;
-  }
-  
-  .podium .second {
-    min-height: 200px;
-    background: #E2E8F0;
-  }
-  
-  .podium .third {
-    min-height: 100px;
-    background: #E6B8A5;
-  }
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-  .column {
-    float: left;
-    padding: 15px;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    justify-content: center;
-    text-align: center;
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+/* Main content */
+.main {
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+button {
+  display: inline-block;
+}
+.button-container {
+  margin: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-button {
+  height: auto;
+  padding: 50px 100px;
+  border-radius: 1000px;
+  border: none;
+  background-color: #ddd;
+}
+
+.right-button {
+  height: auto;
+  padding: 50px 100px;
+  border-radius: 1000px;
+  border: none;
+  background-color: #ddd;
+}
+
+.podium__item {
+  width: 200px;
+}
+
+.podium__rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: #fff;
+}
+
+.podium__city {
+  text-align: center;
+  padding: 0 .5rem;
+}
+
+.podium__number {
+  width: 27px;
+  height: 75px;
+}
+
+.podium .first {
+  min-height: 300px;
+  background: #FFF5B1;
+}
+
+.podium .second {
+  min-height: 200px;
+  background: #E2E8F0;
+}
+
+.podium .third {
+  min-height: 100px;
+  background: #E6B8A5;
+}
+
+.column {
+  float: left;
+  padding: 15px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  justify-content: center;
+  text-align: center;
 }
 
 .column img {
-    width: 100%
+  width: 100%
 }
 
 
 .flex-img:hover {
-    transform:scale(1.2)
+  transform:scale(1.2)
 }
 
 .row::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
