@@ -20,14 +20,13 @@ h1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   border-radius: 7%;
-  padding: 200px 300px;
-  margin-top: 8%;
+  padding: 100px 300px;
+  margin-top: 7%;
 }
 
  .container {
   display: flex;
   align-items: flex-end;
-  margin-top: 7%;
   justify-content: center;
 }
 
@@ -197,3 +196,16 @@ button {
   clear: both;
   display: table;
 }
+ 
+.form-group {
+  width: 20%;
+  border-radius: 10%;
+}
+
+#username {
+  border-radius: 18px;
+  border: 2px solid rgb(168, 168, 168);
+  padding: 15px; 
+  width: 200px;
+  height: 15px;    
+  }
