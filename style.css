@@ -15,14 +15,23 @@ h1 {
   height: auto;
  }
 
-.shadow {
+  .signup-form {
+    background-color: #f3fdff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border-radius: 30px;
+    padding: 100px 300px;
+    margin-top: 7%;
+  }
+
+ .login-form {
   background-color: #f3fdff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
-  border-radius: 7%;
-  padding: 100px 300px;
+  border-radius: 30px;
+  padding: 165px 300px;
   margin-top: 7%;
-}
+ }
 
  .container {
   display: flex;
