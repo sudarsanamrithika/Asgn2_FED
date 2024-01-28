@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        ul.no-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        img {
+            margin-right: 20px; /* Adjust this margin as needed */
+            
+        }
+
+        .stats-section,
+        .action-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        h6 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Header</header>
+
+    <div class="profile-section">
+        <img src="https://i.imgur.com/xVwIWtj.png" alt="profile picture" height="250" width="250">
+        <ul class="no-bullets">
+            <li>Username:</li>
+            <li>Email:</li>
+            <li>Account created:</li>
+            <li>Quote:</li>
+        </ul>
+    </div>
+
+    <div class="stats-section">
+        <div>
+            <p>Games Played</p>
+        </div>
+        <div>
+            <p>Highscore</p>
+        </div>
+        <div>
+            <p>Obstacles Dodged</p>
+        </div>
+    </div>
+
+    <div class="action-section">
+        <h6>LOGOUT</h6>
+        <h6>DELETE ACCOUNT</h6>
+    </div>
+</body>
+
+</html>
