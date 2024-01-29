@@ -1,35 +1,34 @@
-
-        document.addEventListener('DOMContentLoaded', function () {
-          const airplane = document.getElementById('airplane');
-          const gameContainer = document.getElementById('game-container');
-          const scoreDisplay = document.getElementById('score');
-          const highScoreDisplay = document.getElementById('high-score');
-          let score = 0;
-          let highScore = 0;
+document.addEventListener('DOMContentLoaded', function () {
+    const airplane = document.getElementById('airplane');
+    const gameContainer = document.getElementById('game-container');
+    const scoreDisplay = document.getElementById('score');
+    const highScoreDisplay = document.getElementById('high-score');
+    let score = 0;
+    let highScore = 0;
     
-          document.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
-              moveAirplane(-20);
-            } else if (event.key === 'ArrowRight' && airplane.style.left !== '360px') {
-              moveAirplane(20);
-            }
-          });
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
+            moveAirplane(-20);
+        } else if (event.key === 'ArrowRight' && airplane.style.left !== '360px') {
+            moveAirplane(20);
+        }
+    });
     
-          const storedHighScore = localStorage.getItem('highScore');
-          if (storedHighScore) {
+    const storedHighScore = localStorage.getItem('highScore');
+        if (storedHighScore) {
             highScore = parseInt(storedHighScore);
             updateHighScoreDisplay();
-          }
+        }
     
-          let gameStartTime;
-          let touchStartX;
+        let gameStartTime;
+        let touchStartX;
     
-          function moveAirplane(distance) {
+        function moveAirplane(distance) {
             const currentPosition = parseInt(airplane.style.left) || 0;
             airplane.style.left = `${currentPosition + distance}px`;
-          }
+        }
     
-          function createObstacle() {
+        function createObstacle() {
             const obstacle = document.createElement('div');
             obstacle.classList.add('obstacle');
             const randomPosition = Math.floor(Math.random() * 360);
@@ -51,9 +50,9 @@
               this.remove();
               increaseScore();
             });
-          }
+        }
     
-          function checkCollision() {
+        function checkCollision() {
             const airplaneRect = airplane.getBoundingClientRect();
             const obstacles = document.querySelectorAll('.obstacle');
             obstacles.forEach((obstacle) => {
@@ -68,11 +67,9 @@
                 endGame();
               }
             });
-          }
+        }
     
-    
-    
-          function increaseScore() {
+        function increaseScore() {
             score += 1;
             scoreDisplay.textContent = `Score: ${score}`;
           
@@ -82,22 +79,21 @@
     
               localStorage.setItem('highScore', highScore);
             }
-          }
+        }
     
-          function updateHighScoreDisplay() {
+        function updateHighScoreDisplay() {
             highScoreDisplay.textContent = `High Score: ${highScore}`;
-          }
+        }
     
-          setInterval(createObstacle, 2000);
-          gameStartTime = new Date().getTime();
+        setInterval(createObstacle, 2000);
+        gameStartTime = new Date().getTime();
     
-          function endGame() {
+        function endGame() {
             alert(`Game Over! Your score is ${score}`);
             resetGame();
+        }
     
-          }
-    
-          function resetGame() {
+        function resetGame() {
             score = 0;
             scoreDisplay.textContent = 'Score: 0';
             gameContainer.innerHTML = '';
@@ -115,7 +111,7 @@
             gameStartTime = new Date().getTime(); 
     
             updateHighScoreDisplay();
-          }
+        }
     
-          setInterval(checkCollision, 100);
-        });
+        setInterval(checkCollision, 100);
+});
