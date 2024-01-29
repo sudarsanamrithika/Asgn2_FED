@@ -226,3 +226,54 @@ button {
 .navbar-brand {
   font-size: 50px;
 }
+
+#game-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border: 2px solid #000;
+}
+
+#airplane {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #FFD700;
+  bottom: 20px;
+  left: 180px;
+  border-radius: 50%;
+  transition: left 0.1s ease; 
+}
+
+.obstacle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #8B4513;
+  border-radius: 50%;
+  animation: moveObstacle linear infinite;
+}
+
+@keyframes moveObstacle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(400px);
+  }
+}
+
+#score {
+  margin-top: 20px; /* Adjust margin */
+  font-size: 24px;
+  text-align: left;
+  color: #000;
+}
+
+#high-score {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: right;
+  color: #A52A2A;
+}

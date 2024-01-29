@@ -10,9 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <style>
-        .bg-pale-blue {
-    background-color: #e6f7ff; 
-  }
+      .bg-pale-blue {
+        background-color: #e6f7ff; 
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; /* Adjust to column layout */
+        height: 100vh;
+        margin: 0;
+        background-color: #87CEEB;
+      }
     </style>
 </head>
 
@@ -35,7 +44,11 @@
           </div>
         </div>
     </nav>
-    <script src="script.js"></script>
-
+      <div id="game-container">
+        <div id="airplane"></div>
+      </div>
+      <div id="score">Score: 0</div>
+      <div id="high-score">High Score: 0</div>
+      <script src="game.js"></script>
 </body>
 </html>
