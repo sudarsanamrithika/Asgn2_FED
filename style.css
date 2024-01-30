@@ -237,6 +237,7 @@ button {
   height: 400px;
   overflow: hidden;
   border: 2px solid #000;
+  background-color: #b0ebfa;
 }
 
 #airplane {
