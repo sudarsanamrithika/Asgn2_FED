@@ -105,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
             newAirplane.style.height = '40px';
             newAirplane.style.backgroundColor = '#FFD700';
             newAirplane.style.bottom = '20px';
-            newAirplane.style.borderRadius = '50%';
             
             gameContainer.appendChild(newAirplane);
             gameStartTime = new Date().getTime(); 
