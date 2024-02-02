@@ -228,7 +228,7 @@ button {
   border-radius: 10%;
 }
 
-#username {
+#username, #tel, #email, #password  {
   border-radius: 18px;
   border: 2px solid rgb(168, 168, 168);
   padding: 10px 15px; 
