@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const obstacleImages = [
-            'bird_flying.PNG',
-            'cloud_stats.PNG',
-            'ufo.PNG',
+            'imgs/bird_flying.PNG',
+            'imgs/cloud_stats.PNG',
+            'imgs/ufo.PNG',
         ];
     
         function checkCollision() {
@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
         function resetGame() {
             score = 0;
-            scoreDisplay.textContent = 'Score: 0';
             gameContainer.innerHTML = '';
             gameContainer.appendChild(newAirplane);
             gameStartTime = new Date().getTime(); 

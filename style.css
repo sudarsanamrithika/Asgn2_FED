@@ -306,7 +306,7 @@ ul.no-bullets {
   position: absolute;
   width: 60px;
   height: 80px;
-  background-image: url('plane.PNG');
+  background-image: url('imgs/plane.PNG');
   bottom: 20px;
   background-size: cover;
   transition: left 0.1s ease; 
