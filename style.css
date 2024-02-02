@@ -21,12 +21,12 @@ h1 {
  }
 
   .signup-form {
-    background-color: #f3fdff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    border-radius: 30px;
-    padding: 110px 300px;
-    margin-top: 7%;
+  background-color: #f3fdff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 30px;
+  padding: 110px 300px;
+  margin-top: 7%;
   }
 
  .login-form {
@@ -36,6 +36,14 @@ h1 {
   border-radius: 30px;
   padding: 165px 300px;
   margin-top: 7%;
+ }
+
+ .profile-card {
+  background-color: #f3fdff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 30px;
+  margin: 7%;
  }
 
  .container {
@@ -52,11 +60,11 @@ h1 {
 }
 
 .container-right {
-    display: flex;
-    padding-right: 13%;
-    padding-left: 10%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+  display: flex;
+  padding-right: 13%;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .split {
@@ -143,7 +151,7 @@ button {
   padding: 50px 100px;
   border-radius: 1000px;
   border: none;
-  background-color: #ddd;
+  background-color: #939eef;
 }
 
 .right-button {
@@ -151,7 +159,7 @@ button {
   padding: 50px 100px;
   border-radius: 1000px;
   border: none;
-  background-color: #ddd;
+  background-color: #939eef;
 }
 
 .podium__item {
@@ -239,7 +247,8 @@ button {
 .image-row {
   display: flex;
   justify-content: space-around; 
-  padding: 20px; 
+  padding: 5%; 
+  padding-top: 0%;
 }
 
 .image-container {
@@ -255,7 +264,7 @@ button {
 
 .text-overlay {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -269,6 +278,28 @@ button {
   overflow: hidden;
   border: 2px solid #000;
   background-color: #70d6fa;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  padding: 15%;
+  padding-bottom: 0%;
+}
+
+ul.no-bullets {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.round-box {
+  background-color: #939eef;
+  padding: 10px 25px;
+  border-radius: 100px;
+  margin: 10px;
 }
 
 #airplane {
