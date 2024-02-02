@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const randomPosition = Math.floor(Math.random() * 360);
             obstacle.style.left = `${randomPosition}px`;
             gameContainer.appendChild(obstacle);
+
+            const randomImageIndex = Math.floor(Math.random() * obstacleImages.length);
+            obstacle.style.backgroundImage = `url('${obstacleImages[randomImageIndex]}')`;
     
             const initialAnimationDuration = 3; 
             const minAnimationDuration = 1; 
@@ -51,6 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
               increaseScore();
             });
         }
+
+        const obstacleImages = [
+            'bird_flying.PNG',
+            'cloud_stats.PNG',
+            'ufo.PNG',
+        ];
     
         function checkCollision() {
             const airplaneRect = airplane.getBoundingClientRect();
@@ -71,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         function increaseScore() {
             score += 1;
-            scoreDisplay.textContent = `Score: ${score}`;
+            scoreDisplay.textContent = `${score}`;
           
             if (score > highScore) {
               highScore = score;
@@ -82,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     
         function updateHighScoreDisplay() {
-            highScoreDisplay.textContent = `High Score: ${highScore}`;
+            highScoreDisplay.textContent = `${highScore}`;
         }
     
         setInterval(createObstacle, 2000);
@@ -91,21 +100,15 @@ document.addEventListener('DOMContentLoaded', function () {
         function endGame() {
             alert(`Game Over! Your score is ${score}`);
             resetGame();
+            setTimeout(function () {
+                window.location.href = 'your_redirect_page.html'; // Replace with the desired page URL
+              }, 1000);
         }
     
         function resetGame() {
             score = 0;
             scoreDisplay.textContent = 'Score: 0';
             gameContainer.innerHTML = '';
-            const newAirplane = document.createElement('div');
-            newAirplane.id = 'airplane';
-            newAirplane.style.left = '180px';
-            newAirplane.style.position = 'absolute';
-            newAirplane.style.width = '40px';
-            newAirplane.style.height = '40px';
-            newAirplane.style.backgroundColor = '#FFD700';
-            newAirplane.style.bottom = '20px';
-            
             gameContainer.appendChild(newAirplane);
             gameStartTime = new Date().getTime(); 
     

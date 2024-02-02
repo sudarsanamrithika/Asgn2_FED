@@ -191,9 +191,12 @@ button {
   background: #E6B8A5;
 }
 
+.align-right {
+  text-align: right;
+}
+
 .column {
   float: left;
-  width: 33.33%;
   padding: 5px;
 }
 
@@ -233,22 +236,48 @@ button {
   font-size: 50px;
 }
 
+.image-row {
+  display: flex;
+  justify-content: space-around; 
+  padding: 20px; 
+}
+
+.image-container {
+  position: relative;
+  max-width: 30%; 
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: blueviolet; /* Adjust text color */
+}
+
 #game-container {
   position: relative;
   width: 400px;
   height: 400px;
   overflow: hidden;
   border: 2px solid #000;
-  background-color: #b0ebfa;
+  background-color: #70d6fa;
 }
 
 #airplane {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: #414b98;
+  width: 60px;
+  height: 80px;
+  background-image: url('plane.PNG');
   bottom: 20px;
-  left: 180px;
+  background-size: cover;
   transition: left 0.1s ease; 
 }
 
@@ -256,8 +285,7 @@ button {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-color: #8B4513;
-  border-radius: 50%;
+  background-size: cover;
   animation: moveObstacle linear infinite;
 }
 
@@ -271,15 +299,14 @@ button {
 }
 
 #score {
-  margin-top: 20px; /* Adjust margin */
   font-size: 24px;
   text-align: left;
   color: #000;
+  margin-right: 300px;
 }
 
 #high-score {
-  margin-top: 10px;
-  font-size: 18px;
+  font-size: 24px;
   text-align: right;
   color: #A52A2A;
 }
