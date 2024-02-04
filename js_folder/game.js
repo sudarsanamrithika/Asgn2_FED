@@ -103,9 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function endGame() {
         alert(`Game Over! Your score is ${score}`);
         showPopup();
-        setTimeout(function () {
-            window.location.href = 'restdb_test.html'; // Replace with the desired page URL
-            }, 1000);
     }
     
     function resetGame() {
