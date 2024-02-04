@@ -33,21 +33,19 @@
         <div class="align-center">
             <div class="signup-form">
                 <div class="font-size-30px"><b>Sign Up</b></div>
-                <form action="home.html" method="GET">
-                <div class="align-center">
-                    <p><input type="text" placeholder="Username" id="username" minlength="8" maxlength="20" required/></p>
-                    <p><input type="email" placeholder="Email" id="email" required/></p>
-                    <p><input type="tel" placeholder="Phone Number" id="tel" minlength="8" maxlength="8"/></p>
-                    <p><input type="password" placeholder="Password" id="password" required/></p>
-                    <button><input type="submit" value="send" id="contact-submit">Sign Up</button>
-                    <p></p>
-                    Already have an account? <a href="login.html">Login</a>
-                </form>
-                </div>
+                  <form id="data-post-form" method="GET">
+                      <p><input type="text" placeholder="Username" id="username" minlength="8" maxlength="20" required/></p>
+                      <p><input type="email" placeholder="Email" id="email" required/></p>
+                      <p><input type="password" placeholder="Password" id="password" required/></p>
+                      <button type="button" onclick="postData()">Sign Up</button>
+                      <p></p>
+                      Already have an account? <a href="login.html">Login</a>
+                  </form>
+              </div>
             </div>
         </div>
     </div>
 
-    <script src="js_folder/restdb.js"></script>
+    <script src="js_folder/script.js"></script>
 
 </body>
