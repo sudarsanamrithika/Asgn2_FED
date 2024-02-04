@@ -2,6 +2,9 @@ h1 {
   color:#414b98;
 }
 
+.center {
+  text-align: center;
+}
 .font-size-30px {
   font-size: 30px;
   margin: 5%;
@@ -358,11 +361,18 @@ ul.no-bullets {
   background-color: #fff;
   border-radius: 30px;
   padding: 60px;
+}
+
+#popup-content-game {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 60px;
   text-align: center;
 }
 
 #close-btn {
-  text-align: right;
+  margin-left: 300px;
+  width: 20px;
 }
 
 .hidden {
