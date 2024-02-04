@@ -36,9 +36,9 @@
                 <div class="font-size-30px"><b>Login</b></div>
                  <form action="home.html" method="GET">
                     <div class="align-center">
-                        <p><input type="text" placeholder="Username" id="username" minlength="8" maxlength="20" required/></p>
-                        <p><input type="password" placeholder="Password" id="password" required/></p>
-                        <a href="home.html"><button>Login</button></a>
+                        <p><input type="text" placeholder="Username" id="login-username" minlength="8" maxlength="20" required/></p>
+                        <p><input type="password" placeholder="Password" id="login-password" required/></p>
+                        <button type="button" onclick="login()">Login</button></a>
                         <p></p>
                         Don't have an account? <a href="signup.html">Sign up</a>
                     </div>
@@ -47,6 +47,14 @@
         </div>
     </div>
 
+    <div id="popup-container" class="hidden">
+      <div id="popup-content">
+        <span id="close-btn" onclick="closePopup()">X</span>
+        <h2>Error logging in!</h2>
+        <p>Check that username and password are correct, </br> 
+          <a href="signup.html">create</a> a new account.</p>
+      </div>
+    </div>
 
-
+    <script src="js_folder/script.js"></script>
 </body>

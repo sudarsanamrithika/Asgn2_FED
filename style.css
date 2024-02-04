@@ -228,7 +228,7 @@ button {
   border-radius: 10%;
 }
 
-#username, #tel, #email, #password  {
+#username, #tel, #email, #password, #login-username, #login-password  {
   border-radius: 18px;
   border: 2px solid rgb(168, 168, 168);
   padding: 10px 15px; 
@@ -277,7 +277,7 @@ button {
   height: 400px;
   overflow: hidden;
   border: 2px solid #000;
-  background-color: #70d6fa;
+  background-color: #afeaff;
 }
 
 .profile-section {
@@ -361,6 +361,11 @@ ul.no-bullets {
   text-align: center;
 }
 
+#close-btn {
+  text-align: right;
+}
+
 .hidden {
   visibility: hidden;
 }
+
