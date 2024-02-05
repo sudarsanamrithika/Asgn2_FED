@@ -8,9 +8,9 @@ const loginPassword = document.getElementById('login-password').value;
 
 function postData() {
   const formData = {
-    username: document.getElementById('username').value,
-    email: document.getElementById('email').value,
-    password: document.getElementById('password').value,
+    username: document.getElementById('newUsername').value,
+    email: document.getElementById('newEmail').value,
+    password: document.getElementById('newPassword').value,
     highscore: 0,
     dodged: 0
   };
@@ -38,9 +38,9 @@ function postData() {
     popupContainer.classList.remove('hidden');
   });
 
-  sessionStorage.setItem("username", username);
-  sessionStorage.setItem("password", password);
-  sessionStorage.setItem("email", email);
+  sessionStorage.setItem("newUsername", newUsername);
+  sessionStorage.setItem("newPassword", newPassword);
+  sessionStorage.setItem("newEmail", newEmail);
 }
   
 function login() {
@@ -75,8 +75,8 @@ function login() {
     popupContainer.classList.remove('hidden');
   });
 
-  sessionStorage.setItem("username", username);
-  sessionStorage.setItem("password", password);
+  sessionStorage.setItem("username", loginUsername);
+  sessionStorage.setItem("password", loginPassword);
   sessionStorage.setItem("email", email);
 }
 
