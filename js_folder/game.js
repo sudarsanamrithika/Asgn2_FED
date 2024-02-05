@@ -1,5 +1,5 @@
-const aUrl = 'https://airplanegame-f27a.restdb.io/rest/accounts';
-const aKey = '65b70864da76eb17f5969090';
+const aUrl = 'https://airplanegame-5c8c.restdb.io/rest/accounts';
+const aKey = '65c0fe2e73f36e826e00b4d3';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');
@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalScoreSpan = document.getElementById('final-score');
     const playAgainBtn = document.getElementById('play-again-btn');
     const goHomeBtn = document.getElementById('go-home-btn');
+    const username = sessionStorage.getItem("username");
     
     let score = 0;
     let highScore = 0;
+    let newScore = 0;
   
     document.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
@@ -21,11 +23,41 @@ document.addEventListener('DOMContentLoaded', function () {
             moveAirplane(20);
         }
     });
-  
-    const storedHighScore = localStorage.getItem('highScore');
+
+    const storedHighScore = sessionStorage.getItem('highScore');
     if (storedHighScore) {
         highScore = parseInt(storedHighScore);
         updateHighScoreDisplay();
+    } else {
+        // If no local high score is found, fetch the high score from the database
+        getHighScore(username); // Assuming you have the username available
+    }
+
+    // Function to get high score
+    function getHighScore(username) {
+        // Fetch user data based on the username
+        fetch(`${aUrl}?q={"username":"${username}"}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': aKey,
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+        // Check if user with provided username exists
+        if (data.length > 0) {
+            const userHighScore = data[0].highscore;
+            console.log(`High score for ${username}: ${userHighScore}`);
+            return userHighScore;
+        } 
+        else {
+            console.log('User not found in highscores collection.');
+        }
+        })
+        .catch(error => {
+            console.error('Error while getting high score:', error);
+        });
     }
   
     function moveAirplane(distance) {
@@ -55,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         obstacle.addEventListener('animationiteration', function () {
             this.remove();
-            increaseScore();
+            newScore = increaseScore();
         });
     }
   
@@ -81,47 +113,44 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    
-    function updateHighscore() {
-        
-    }
 
-    function increaseScore() {
-        score += 1;
-        scoreDisplay.textContent = `${score}`;
-          
-        if (score > highScore) {
-            highScore = score;
-            updateHighScoreDisplay();
-            localStorage.setItem('highScore', highScore);
-            sessionStorage.setItem('highscore', highScore)
-            updateHighscore();
-        }
+    function updateHighScore(username, newHighScore) {
+        fetch(`${aUrl}?q={"username":"${username}"}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-apikey': aKey,
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                const userData = data[0];
+                userData.highscore = newHighScore; // Corrected variable name
+
+                fetch(`${aUrl}/${userData._id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-apikey': aKey,
+                    },
+                    body: JSON.stringify(userData),
+                })
+                .then(response => response.json())
+                .then(updatedData => {
+                    console.log(`High score for ${username} updated to ${newHighScore}`);
+                })
+                .catch(error => {
+                    console.error('Error updating high score:', error);
+                });
+            } else {
+                console.log('User not found in highscores collection. Cannot update high score.');
+            }
+        })
+        .catch(error => {
+            console.error('Error while getting high score:', error);
+        });
     }
-    
-    function updateHighscore() {
-        var jsondata = {
-          username: sessionStorage.getItem("username"),
-          email: sessionStorage.getItem('email'),
-          highscore: sessionStorage.getItem('highscore'),
-          dodged: sessionStorage.getItem('oDodged')
-        };
-        var settings = {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "x-apikey": aKey,
-            "Cache-Control": "no-cache"
-          },
-          body: JSON.stringify(jsondata)
-        }
-      
-        fetch(`aUrl/${loginUsername}`, settings)
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-          }); 
-      }
 
     function updateHighScoreDisplay() {
         highScoreDisplay.textContent = `${highScore}`;
@@ -131,9 +160,10 @@ document.addEventListener('DOMContentLoaded', function () {
     gameStartTime = new Date().getTime();
     
     function endGame() {
+        updateHighScore(username, newHighScore);
         alert(`Game Over! Your score is ${score}`);
         showPopup();
-    }
+    }   
     
     function resetGame() {
         score = 0;
@@ -146,10 +176,10 @@ document.addEventListener('DOMContentLoaded', function () {
         scoreDisplay.textContent = `${score}`;
   
         if (score > highScore) {
-            highScore = score;
+            newHighScore = score;
             updateHighScoreDisplay();
             localStorage.setItem('highScore', highScore);
-            updateHighscore();
+            return newHighScore;
         }
     }
 
@@ -167,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetGame() {
         score = 0;
         location.reload();
-        updateHighScoreDisplay();
     }
   
     setInterval(checkCollision, 100);

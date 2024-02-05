@@ -1,7 +1,8 @@
 const popupContainer = document.getElementById('popup-container');
+const loadingContainer = document.getElementById('loading-container');
 const closeBtn = document.getElementById('close-btn');
-const apiUrl = 'https://airplanegame-f27a.restdb.io/rest/accounts';
-const apiKey = '65b70864da76eb17f5969090';
+const apiUrl = 'https://airplanegame-5c8c.restdb.io/rest/accounts';
+const apiKey = '65c0fe2e73f36e826e00b4d3';
 
 function postData() {
   const formData = {
@@ -28,7 +29,9 @@ function postData() {
   })
   .then(data => {
     console.log('Data posted successfully:', data);
-    window.location.href = 'home.html';
+    setTimeout(() => {
+      window.location.href = 'home.html';
+    }, delay);
   })
   .catch(error => {
     console.error('Error posting data:', error);
@@ -44,6 +47,7 @@ function login() {
   // Fetch user data based on the username
   const loginUsername = document.getElementById('login-username').value;
   const loginPassword = document.getElementById('login-password').value;
+  const delay = 5000;
   fetch(`${apiUrl}?q={"username":"${loginUsername}"}`, {
     method: 'GET',
     headers: {
@@ -59,7 +63,10 @@ function login() {
 
       if (userData.password === loginPassword) {
         console.log('Login successful!');
-        window.location.href = 'home.html';
+        loadingContainer.classList.remove('hidden');
+        setTimeout(() => {
+          window.location.href = 'home.html';
+        }, delay);
       } else {
         console.log('Incorrect password. Login failed.');
         popupContainer.classList.remove('hidden');
@@ -70,38 +77,10 @@ function login() {
     }
   })
 
-  .catch(error => {
-    console.error('Error during login:', error);
-    popupContainer.classList.remove('hidden');
-  });
-
   sessionStorage.setItem("username", loginUsername);
   sessionStorage.setItem("password", loginPassword);
 }
 
-function updateHighscore() {
-  var jsondata = {
-    username: sessionStorage.getItem("username"),
-    email: sessionStorage.getItem('email'),
-    highscore: sessionStorage.getItem('highscore'),
-    dodged: sessionStorage.getItem('oDodged')
-  };
-  var settings = {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      "x-apikey": APIKEY,
-      "Cache-Control": "no-cache"
-    },
-    body: JSON.stringify(jsondata)
-  }
-
-  fetch(`apiUrl/${loginUsername}`, settings)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-    }); 
-}
   
 function closePopup() {
   popupContainer.classList.add('hidden');
