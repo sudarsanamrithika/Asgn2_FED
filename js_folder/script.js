@@ -72,6 +72,7 @@ function login() {
 
 function closePopup() {
   popupContainer.classList.add('hidden');
+  location.reload();
 }
 
 closeBtn.addEventListener('click', closePopup);
