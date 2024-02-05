@@ -1,16 +1,13 @@
-const apiUrl = 'https://airplanegame-f27a.restdb.io/rest/accounts';
-const apiKey = '65b70864da76eb17f5969090';
 const popupContainer = document.getElementById('popup-container');
 const closeBtn = document.getElementById('close-btn');
-const loginUsername = document.getElementById('login-username').value;
-const loginPassword = document.getElementById('login-password').value;
-
+const apiUrl = 'https://airplanegame-f27a.restdb.io/rest/accounts';
+const apiKey = '65b70864da76eb17f5969090';
 
 function postData() {
   const formData = {
-    username: document.getElementById('newUsername').value,
-    email: document.getElementById('newEmail').value,
-    password: document.getElementById('newPassword').value,
+    username: document.getElementById('username').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
     highscore: 0,
     dodged: 0
   };
@@ -38,13 +35,15 @@ function postData() {
     popupContainer.classList.remove('hidden');
   });
 
-  sessionStorage.setItem("newUsername", newUsername);
-  sessionStorage.setItem("newPassword", newPassword);
-  sessionStorage.setItem("newEmail", newEmail);
+  sessionStorage.setItem("username", username);
+  sessionStorage.setItem("password", password);
+  sessionStorage.setItem("email", email);
 }
   
 function login() {
   // Fetch user data based on the username
+  const loginUsername = document.getElementById('login-username').value;
+  const loginPassword = document.getElementById('login-password').value;
   fetch(`${apiUrl}?q={"username":"${loginUsername}"}`, {
     method: 'GET',
     headers: {
@@ -60,6 +59,7 @@ function login() {
 
       if (userData.password === loginPassword) {
         console.log('Login successful!');
+        window.location.href = 'home.html';
       } else {
         console.log('Incorrect password. Login failed.');
         popupContainer.classList.remove('hidden');
@@ -77,13 +77,15 @@ function login() {
 
   sessionStorage.setItem("username", loginUsername);
   sessionStorage.setItem("password", loginPassword);
-  sessionStorage.setItem("email", email);
 }
 
 function updateHighscore() {
-  var newHighScore = 0;
-  console.log(newHighScore);
-  var jsondata = {loginUsername: loginUsername, email: email, password: password, newHighScore: newHighScore, dodged: dodged };
+  var jsondata = {
+    username: sessionStorage.getItem("username"),
+    email: sessionStorage.getItem('email'),
+    highscore: sessionStorage.getItem('highscore'),
+    dodged: sessionStorage.getItem('oDodged')
+  };
   var settings = {
     method: "PUT",
     headers: {
@@ -105,5 +107,3 @@ function closePopup() {
   popupContainer.classList.add('hidden');
   location.reload();
 }
-
-closeBtn.addEventListener('click', closePopup);

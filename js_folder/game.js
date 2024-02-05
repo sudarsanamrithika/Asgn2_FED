@@ -1,5 +1,5 @@
-const apiUrl = 'https://airplanegame-f27a.restdb.io/rest/accounts';
-const apiKey = '65b70864da76eb17f5969090';
+const aUrl = 'https://airplanegame-f27a.restdb.io/rest/accounts';
+const aKey = '65b70864da76eb17f5969090';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');
@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let score = 0;
     let highScore = 0;
-    let gameStartTime;
-    let touchStartX;
   
     document.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
@@ -85,25 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function updateHighscore() {
-        var newHighScore = localStorage.getItem('highscore');
-        console.log(newHighScore);
-        var jsondata = {loginUsername: loginUsername, email: email, password: loginPassword, newHighScore: newHighScore, dodged: dodged };
-        var settings = {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "x-apikey": APIKEY,
-            "Cache-Control": "no-cache"
-          },
-          body: JSON.stringify(jsondata)
-        }
-      
-        fetch(`apiUrl/${loginUsername}`, settings)
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-          }); 
-      }
+        
+    }
 
     function increaseScore() {
         score += 1;
@@ -113,10 +94,35 @@ document.addEventListener('DOMContentLoaded', function () {
             highScore = score;
             updateHighScoreDisplay();
             localStorage.setItem('highScore', highScore);
+            sessionStorage.setItem('highscore', highScore)
             updateHighscore();
         }
     }
     
+    function updateHighscore() {
+        var jsondata = {
+          username: sessionStorage.getItem("username"),
+          email: sessionStorage.getItem('email'),
+          highscore: sessionStorage.getItem('highscore'),
+          dodged: sessionStorage.getItem('oDodged')
+        };
+        var settings = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": aKey,
+            "Cache-Control": "no-cache"
+          },
+          body: JSON.stringify(jsondata)
+        }
+      
+        fetch(`aUrl/${loginUsername}`, settings)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          }); 
+      }
+
     function updateHighScoreDisplay() {
         highScoreDisplay.textContent = `${highScore}`;
     }
