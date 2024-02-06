@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link type="text/css" rel="stylesheet" href="normalize.css" />
+  <link rel = "stylesheet" href = "style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <style>
+    </style>
+<body>
+    <div class="update-form">
+        
+    <div class="center">
+        <h2>Update Data!</h2>
+        <form id="update-form">
+            <div class="container">
+                <div class="split">
+                    <label for="image-upload" class="upload-label">
+                        <input type="file" id="new-profile" accept="image/*" onchange="previewImage(event)">
+                    </label>
+                    <div id="image-preview-container">
+                        <img id="image-preview" src="#" alt="Image Preview">
+                    </div>
+                </div>
+                <div class="split-right">
+                    <p><input type="text" placeholder="Username" id="new-username" minlength="8" maxlength="20" required/></p>
+                    <p><input type="email" placeholder="Email" id="new-email" required/></p>
+                    <p><input type="quote" placeholder="Quote" id="new-quote" minlength="8" maxlength="20" required/></p>
+                </div>
+            </div>
+            <button type="button">Update Data</button>
+         </form>
+    </div>
+</div>
+
+    <script src="js_folder/script.js"></script>
+    <script src="js_folder/update.js"></script>
+</body>

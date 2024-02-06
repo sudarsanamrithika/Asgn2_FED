@@ -1,5 +1,6 @@
 const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
+const updateContainer = document.getElementById('update-container');
 const closeBtn = document.getElementById('close-btn');
 const cUser = document.getElementById('currentUsername');
 const wBack = document.getElementById('welcome-back');
@@ -140,6 +141,11 @@ function deleteAccount(username) {
   });
 }
 
+function closePopup() {
+  popupContainer.classList.add('hidden');
+  location.reload();
+}
+
 document.getElementById('delete-account-btn').addEventListener('click', function() {
   const username = sessionStorage.getItem('username'); 
   if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
@@ -158,11 +164,5 @@ uEmail.textContent = `${currentEmail}`;
 uQuote.textContent = `${userQuote}`;
 highScore.textContent = `${highscore}`;
 
-
-  
-function closePopup() {
-  popupContainer.classList.add('hidden');
-  location.reload();
-}
 
 
