@@ -2,18 +2,29 @@ const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
 const closeBtn = document.getElementById('close-btn');
 const cUser = document.getElementById('currentUsername');
-const wBack = document.getElementById('welcome-back')
+const wBack = document.getElementById('welcome-back');
+const uEmail = document.getElementById('userEmail');
+const profile = document.getElementById('profile');
+const uQuote = document.getElementById('quote');
 const delay = 5000;
 const apiUrl = 'https://airplanegame-9909.restdb.io/rest/accounts';
 const apiKey = '65c1dd4b72864d658bdcc111';
 
 function postData() {
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const profilePic = 'imgs/baseProfile.png';
+  const highScore = 0;
+  const quote = 'Lorem ipsum';
+  
   const formData = {
     username: document.getElementById('username').value,
     email: document.getElementById('email').value,
     password: document.getElementById('password').value,
     highscore: 0,
-    dodged: 0
+    quote: 'Lorem ipsum',
+    profilePic: 'imgs/baseProfile.png'
   };
   
   fetch(apiUrl, {
@@ -41,14 +52,15 @@ function postData() {
     console.error('Error posting data:', error);
     popupContainer.classList.remove('hidden');
   });
-
-  sessionStorage.setItem("username", username);
-  sessionStorage.setItem("password", password);
+  
   sessionStorage.setItem("email", email);
+  sessionStorage.setItem("username", username);
+  sessionStorage.setItem("profile", profilePic);
+  sessionStorage.setItem("highscore", highScore);
+  sessionStorage.setItem("quote", quote);
 }
   
 function login() {
-  // Fetch user data based on the username
   const loginUsername = document.getElementById('login-username').value;
   const loginPassword = document.getElementById('login-password').value;
 
@@ -61,11 +73,13 @@ function login() {
   })
   .then(response => response.json())
   .then(data => {
-    // Check if user with provided username exists
     if (data.length > 0) {
       const userData = data[0];
 
       if (userData.password === loginPassword) {
+        sessionStorage.setItem("email", userData.email);
+        sessionStorage.setItem('profile', userData.profilePic);
+        sessionStorage.setItem('quote', userData.quote);
         console.log('Login successful!');
         loadingContainer.classList.remove('hidden');
         setTimeout(() => {
@@ -80,14 +94,27 @@ function login() {
       popupContainer.classList.remove('hidden');
     }
   })
+  .catch(error => {
+    console.error('Error fetching user data:', error);
+  });
 
   sessionStorage.setItem("username", loginUsername);
   sessionStorage.setItem("password", loginPassword);
 }
 
+
 const currentUsername = sessionStorage.getItem("username");
-cUser.textContent = `Hi, ${currentUsername}!`;
-wBack.textContent = `Welcome back, ${currentUsername}!`
+const currentEmail = sessionStorage.getItem("email");
+const imgSrc = sessionStorage.getItem('profile');
+const userQuote = sessionStorage.getItem('quote');
+profile.src = imgSrc;
+cUser.textContent = `${currentUsername}!!!`;
+uEmail.textContent = `${currentEmail}`;
+uQuote.textContent = `${userQuote}`;
+
+
+wBack.textContent = `Welcome back, ${currentUsername}!`;
+
   
 function closePopup() {
   popupContainer.classList.add('hidden');
