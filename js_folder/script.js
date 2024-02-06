@@ -1,6 +1,7 @@
 const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
 const closeBtn = document.getElementById('close-btn');
+const delay = 5000;
 const apiUrl = 'https://airplanegame-5c8c.restdb.io/rest/accounts';
 const apiKey = '65c0fe2e73f36e826e00b4d3';
 
@@ -29,6 +30,7 @@ function postData() {
   })
   .then(data => {
     console.log('Data posted successfully:', data);
+    loadingContainer.classList.remove('hidden');
     setTimeout(() => {
       window.location.href = 'home.html';
     }, delay);
@@ -47,7 +49,7 @@ function login() {
   // Fetch user data based on the username
   const loginUsername = document.getElementById('login-username').value;
   const loginPassword = document.getElementById('login-password').value;
-  const delay = 5000;
+
   fetch(`${apiUrl}?q={"username":"${loginUsername}"}`, {
     method: 'GET',
     headers: {

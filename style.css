@@ -374,6 +374,12 @@ ul.no-bullets {
   padding: 60px;
 }
 
+#loading-content {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 60px 165px;
+}
+
 #popup-content-game {
   background-color: #fff;
   border-radius: 30px;

@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentPosition = parseInt(airplane.style.left) || 0;
         airplane.style.left = `${currentPosition + distance}px`;
     }
+
     function createObstacle() {
         const obstacle = document.createElement('div');
         obstacle.classList.add('obstacle');
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         obstacle.addEventListener('animationiteration', function () {
             this.remove();
             newScore = increaseScore();
+            console.log(newScore);
         });
     }
   
@@ -158,19 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     setInterval(createObstacle, 2000);
     gameStartTime = new Date().getTime();
-    
-    function endGame() {
-        updateHighScore(username, newHighScore);
-        alert(`Game Over! Your score is ${score}`);
-        showPopup();
-    }   
-    
-    function resetGame() {
-        score = 0;
-        updateHighScoreDisplay();
-        location.reload();
-    }
-    
+
     function increaseScore() {
         score += 1;
         scoreDisplay.textContent = `${score}`;
@@ -178,8 +168,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (score > highScore) {
             newHighScore = score;
             updateHighScoreDisplay();
-            localStorage.setItem('highScore', highScore);
+            localStorage.setItem('highScore', newHighScore);
             return newHighScore;
+        }
+        else {
+            return score;
         }
     }
 
@@ -190,7 +183,9 @@ document.addEventListener('DOMContentLoaded', function () {
     gameStartTime = new Date().getTime();
   
     function endGame() {
-        finalScoreSpan.textContent = score;
+        console.log(localStorage.getItem('highScore'))
+        updateHighScore(username, localStorage.getItem('highScore'));
+        finalScoreSpan.textContent = newScore;
         popupContainer.classList.remove('hidden');
     }
   
