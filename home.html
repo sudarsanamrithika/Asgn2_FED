@@ -25,7 +25,7 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-light bg-pale-blue fixed-top">
     <div class="container-fluid">
-      <div class="navbar-brand">TRAVELFAR</div>
+      <a href="home.html"><div class="navbar-brand">TRAVELFAR</div></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,6 +33,9 @@
         <ul class="navbar-nav ">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html" id="currentUsername"></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profile.html">Profile</a>
@@ -45,15 +48,17 @@
   <img src="imgs/TravelFar_picture.jpg" alt="Picture of plane flying around the world" class="center">
   
   <div class="main-content">
+    <div class="center-text-30px" id="welcome-back">
+      Welcome back, user!
+    </div>
     <div class="center-text-30px">
-      Welcome back, user!</br>
       Ready to play another game?
     </div>
 
     <div class="align-center">
       <a href="game.html">
         <div class="font-size-30px">
-          <button class="left-button">PLAY</button>
+          <button class="play-button">PLAY</button>
         </div>
       </a>
 

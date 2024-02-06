@@ -1,9 +1,11 @@
 const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
 const closeBtn = document.getElementById('close-btn');
+const cUser = document.getElementById('currentUsername');
+const wBack = document.getElementById('welcome-back')
 const delay = 5000;
-const apiUrl = 'https://airplanegame-5c8c.restdb.io/rest/accounts';
-const apiKey = '65c0fe2e73f36e826e00b4d3';
+const apiUrl = 'https://airplanegame-9909.restdb.io/rest/accounts';
+const apiKey = '65c1dd4b72864d658bdcc111';
 
 function postData() {
   const formData = {
@@ -83,8 +85,13 @@ function login() {
   sessionStorage.setItem("password", loginPassword);
 }
 
+const currentUsername = sessionStorage.getItem("username");
+cUser.textContent = `Hi, ${currentUsername}!`;
+wBack.textContent = `Welcome back, ${currentUsername}!`
   
 function closePopup() {
   popupContainer.classList.add('hidden');
   location.reload();
 }
+
+

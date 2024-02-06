@@ -8,7 +8,14 @@ h1 {
 .font-size-30px {
   font-size: 30px;
 }
+
+.padding-halfpx {
+  padding: 0.5px;
+}
  
+.currentUsername {
+  padding: 0.5px;
+}
 .margin-left-20px {
   margin-left: 20px;
 }
@@ -101,7 +108,7 @@ h1 {
   border-radius: 5%;
 }
  
- .navbar {
+.navbar {
   overflow: hidden;
   background-color: #b7d4ff;
   position: fixed; /* Set the navbar to fixed position */
@@ -159,6 +166,15 @@ button {
   background-color: #939eef;
 }
 
+.play-button {
+  height: auto;
+  padding: 50px 100px;
+  margin: 5%;
+  border-radius: 1000px;
+  border: none;
+  background-color: #939eef;
+}
+
 .podium__item {
   width: 200px;
 }
@@ -207,6 +223,10 @@ button {
 
 .column img {
   width: 20%;
+}
+
+.nav-item img {
+  width: 10%;
 }
 
 .flex-img:hover {
@@ -390,4 +410,5 @@ ul.no-bullets {
 .hidden {
   visibility: hidden;
 }
+
 
