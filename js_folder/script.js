@@ -6,6 +6,7 @@ const wBack = document.getElementById('welcome-back');
 const uEmail = document.getElementById('userEmail');
 const profile = document.getElementById('profile');
 const uQuote = document.getElementById('quote');
+const highScore = document.getElementById('highscore');
 const delay = 5000;
 const apiUrl = 'https://airplanegame-9909.restdb.io/rest/accounts';
 const apiKey = '65c1dd4b72864d658bdcc111';
@@ -13,7 +14,6 @@ const apiKey = '65c1dd4b72864d658bdcc111';
 function postData() {
   const username = document.getElementById('username').value;
   const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
   const profilePic = 'imgs/baseProfile.png';
   const highScore = 0;
   const quote = 'Lorem ipsum';
@@ -78,8 +78,10 @@ function login() {
 
       if (userData.password === loginPassword) {
         sessionStorage.setItem("email", userData.email);
-        sessionStorage.setItem('profile', userData.profilePic);
-        sessionStorage.setItem('quote', userData.quote);
+        sessionStorage.setItem("profile", userData.profilePic);
+        sessionStorage.setItem("quote", userData.quote);
+        sessionStorage.setItem("highscore", parseInt(userData.highscore));
+        console.log(userData.highscore);
         console.log('Login successful!');
         loadingContainer.classList.remove('hidden');
         setTimeout(() => {
@@ -102,18 +104,60 @@ function login() {
   sessionStorage.setItem("password", loginPassword);
 }
 
+function deleteAccount(username) {
+  fetch(`${apiUrl}?q={"username":"${username}"}`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'x-apikey': apiKey,
+      },
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.length > 0) {
+          const userId = data[0]._id;
+          return fetch(`${apiUrl}/${userId}`, {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'x-apikey': apiKey,
+              },
+          });
+      } else {
+          console.log('User not found.');
+      }
+  })
+  .then(deletedResponse => {
+      if (deletedResponse.ok) {
+          console.log('Account deleted successfully.');
+          window.location.href = 'index.html';
+      } else {
+          console.error('Error deleting account:', deletedResponse.statusText);
+      }
+  })
+  .catch(error => {
+      console.error('Error deleting account:', error);
+  });
+}
+
+document.getElementById('delete-account-btn').addEventListener('click', function() {
+  const username = sessionStorage.getItem('username'); 
+  if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
+      deleteAccount(username);
+  };
+});
 
 const currentUsername = sessionStorage.getItem("username");
 const currentEmail = sessionStorage.getItem("email");
 const imgSrc = sessionStorage.getItem('profile');
 const userQuote = sessionStorage.getItem('quote');
+const highscore = sessionStorage.getItem('highScore');
 profile.src = imgSrc;
 cUser.textContent = `${currentUsername}!!!`;
 uEmail.textContent = `${currentEmail}`;
 uQuote.textContent = `${userQuote}`;
+highScore.textContent = `${highscore}`;
 
-
-wBack.textContent = `Welcome back, ${currentUsername}!`;
 
   
 function closePopup() {

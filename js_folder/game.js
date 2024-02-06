@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalScoreSpan = document.getElementById('final-score');
     const playAgainBtn = document.getElementById('play-again-btn');
     const goHomeBtn = document.getElementById('go-home-btn');
-    const username = sessionStorage.getItem("username");
+    const username = document.getElementById("username");
     
     let score = 0;
     let highScore = 0;
