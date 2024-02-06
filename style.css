@@ -60,6 +60,13 @@ h1 {
   justify-content: center;
 }
 
+.container-logout-delete {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 5%;
+}
+
 .container-left {
   display: flex;
   padding-top: 5%;
@@ -73,10 +80,6 @@ h1 {
   padding-left: 10%;
   padding-top: 5%;
   padding-bottom: 5%;
-}
-
-.split {
-  margin-left: 7%;
 }
 
 .split-right { 
@@ -164,6 +167,23 @@ button {
   border-radius: 1000px;
   border: none;
   background-color: #939eef;
+}
+
+.logout-button {
+  height: auto;
+  padding: 50px 100px;
+  border-radius: 1000px;
+  border: none;
+  background-color: #97b4cd;
+}
+
+.delete-button {
+  height: auto;
+  padding: 50px 100px;
+  border-radius: 1000px;
+  border: none;
+  background-color: #ff2a2a;
+  color: white;
 }
 
 .play-button {
@@ -411,4 +431,6 @@ ul.no-bullets {
   visibility: hidden;
 }
 
-
+@media screen and (max-width: 500px){
+  button 
+}
