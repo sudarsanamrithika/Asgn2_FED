@@ -1,6 +1,11 @@
 const imgSrc = sessionStorage.getItem('profile');
 const userQuote = sessionStorage.getItem('quote');
 const highscore = sessionStorage.getItem('highscore');
+const highScore = document.getElementById('highscore');
+const uEmail = document.getElementById('userEmail');
+const profile = document.getElementById('profile');
+const uQuote = document.getElementById('quote');
+const currentEmail = sessionStorage.getItem("email");
 profile.src = imgSrc;
 uEmail.textContent = `${currentEmail}`;
 uQuote.textContent = `${userQuote}`;

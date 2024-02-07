@@ -33,31 +33,13 @@ h1 {
   width: 100px;
 }
 
-.signup-form {
+.signup-form, .login-form, .update-form {
   background-color: #f3fdff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   border-radius: 30px;
   padding: 138px 300px;
   margin-top: 5%;
-}
-
-.login-form {
-  background-color: #f3fdff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  border-radius: 30px;
-  padding: 165px 300px;
-  margin-top: 5%;
-}
-
-.update-form {
-  background-color: #f3fdff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  border-radius: 30px;
-  padding: 150px 0px;
-  margin: 5%;
 }
 
 .profile-card {
@@ -165,20 +147,12 @@ button {
   justify-content: space-between;
 }
 
-.left-button {
+.left-button, .right-button, .play-button {
   height: auto;
   padding: 50px 100px;
   border-radius: 1000px;
   border: none;
-  background-color: #939eef;
-}
-
-.right-button {
-  height: auto;
-  padding: 50px 100px;
-  border-radius: 1000px;
-  border: none;
-  background-color: #939eef;
+  background-color: #b5d7ff;
 }
 
 .logout-button {
@@ -186,7 +160,7 @@ button {
   padding: 50px 100px;
   border-radius: 1000px;
   border: none;
-  background-color: #97b4cd;
+  background-color: #cae0f4;
 }
 
 .delete-button {
@@ -196,52 +170,6 @@ button {
   border: none;
   background-color: #ff2a2a;
   color: white;
-}
-
-.play-button {
-  height: auto;
-  padding: 50px 100px;
-  margin: 5%;
-  border-radius: 1000px;
-  border: none;
-  background-color: #939eef;
-}
-
-.podium__item {
-  width: 200px;
-}
-
-.podium__rank {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 35px;
-  color: #fff;
-}
-
-.podium__city {
-  text-align: center;
-  padding: 0 .5rem;
-}
-
-.podium__number {
-  width: 27px;
-  height: 75px;
-}
-
-.podium .first {
-  min-height: 300px;
-  background: #FFF5B1;
-}
-
-.podium .second {
-  min-height: 200px;
-  background: #E2E8F0;
-}
-
-.podium .third {
-  min-height: 100px;
-  background: #E6B8A5;
 }
 
 .align-right {
@@ -351,7 +279,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: blueviolet; /* Adjust text color */
+  color: blueviolet;
 }
 
 #game-container {
@@ -477,15 +405,6 @@ ul.no-bullets {
   text-align: center;
 }
 
-.circle {
-  position: absolute;
-  top: -30px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
-}
-
 /* Styles for leaderboard list */
 .leaderboard-list {
   list-style-type: none;
@@ -505,24 +424,10 @@ ul.no-bullets {
   font-weight: bold;
 }
 
-.highscore {
-  margin-left: auto;
-}
-
-.username {
-  margin-right: auto;
-}
-
-#popup-content {
+#popup-content, #loading-content {
   background-color: #fff;
   border-radius: 30px;
   padding: 60px;
-}
-
-#loading-content {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 60px 165px;
 }
 
 #popup-content-game {
@@ -581,16 +486,7 @@ ul.no-bullets {
     color: white;
   }
 
-  .login-form {
-    background-color: #f3fdff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    border-radius: 30px;
-    padding: 150px 30px;
-    margin: 5%;
-  }
-
-  .signup-form {
+  .login-form, .signup-form {
     background-color: #f3fdff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;

@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         obstacle.addEventListener('animationiteration', function () {
             this.remove();
-            newScore = increaseScore();
+            increaseScore();
             console.log(newScore);
         });
     }
@@ -136,9 +136,10 @@ document.addEventListener('DOMContentLoaded', function () {
   
         if (score > storedHighScore) {
             newHighScore = score;
+            console.log(newHighScore);
             updateHighScoreDisplay();
             sessionStorage.setItem('highscore', newHighScore);
-            updateHighScore(username, newHighScore)
+            updateHighScore(username, sessionStorage.getItem('highscore'));
             return newHighScore;
         }
         else {
@@ -175,4 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
         popupContainer.classList.add('hidden');
         window.location.href = 'home.html';
     });
+
+    
 });
