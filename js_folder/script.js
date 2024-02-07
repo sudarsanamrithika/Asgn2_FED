@@ -1,6 +1,6 @@
 const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
-const updateContainer = document.getElementById('update-container');
+const deleteContainer = document.getElementById('delete-container');
 const closeBtn = document.getElementById('close-btn');
 const cUser = document.getElementById('currentUsername');
 const wBack = document.getElementById('welcome-back');
@@ -9,8 +9,8 @@ const profile = document.getElementById('profile');
 const uQuote = document.getElementById('quote');
 const highScore = document.getElementById('highscore');
 const delay = 5000;
-const apiUrl = 'https://airplanegame-9909.restdb.io/rest/accounts';
-const apiKey = '65c1dd4b72864d658bdcc111';
+const apiUrl = 'https://airplanegame-0e10.restdb.io/rest/accounts';
+const apiKey = '65c2fea74405e1eb04db0819';
 
 function postData() {
   const username = document.getElementById('username').value;
@@ -81,7 +81,7 @@ function login() {
         sessionStorage.setItem("email", userData.email);
         sessionStorage.setItem("profile", userData.profilePic);
         sessionStorage.setItem("quote", userData.quote);
-        sessionStorage.setItem("highscore", parseInt(userData.highscore));
+        sessionStorage.setItem("highscore", userData.highscore);
         console.log(userData.highscore);
         console.log('Login successful!');
         loadingContainer.classList.remove('hidden');
@@ -131,7 +131,10 @@ function deleteAccount(username) {
   .then(deletedResponse => {
       if (deletedResponse.ok) {
           console.log('Account deleted successfully.');
-          window.location.href = 'index.html';
+          deleteContainer.classList.remove('hidden');
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, delay);
       } else {
           console.error('Error deleting account:', deletedResponse.statusText);
       }
@@ -149,7 +152,7 @@ function closePopup() {
 document.getElementById('delete-account-btn').addEventListener('click', function() {
   const username = sessionStorage.getItem('username'); 
   if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
-      deleteAccount(username);
+    deleteAccount(username);  
   };
 });
 
@@ -157,7 +160,7 @@ const currentUsername = sessionStorage.getItem("username");
 const currentEmail = sessionStorage.getItem("email");
 const imgSrc = sessionStorage.getItem('profile');
 const userQuote = sessionStorage.getItem('quote');
-const highscore = sessionStorage.getItem('highScore');
+const highscore = sessionStorage.getItem('highscore');
 profile.src = imgSrc;
 cUser.textContent = `${currentUsername}!!!`;
 uEmail.textContent = `${currentEmail}`;

@@ -18,7 +18,7 @@ function previewImage(event) {
     
     reader.readAsDataURL(event.target.files[0]);
 }
-
+  
 document.getElementById('update-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
   

@@ -1,5 +1,5 @@
-const aUrl = 'https://airplanegame-9909.restdb.io/rest/accounts';
-const aKey = '65c1dd4b72864d658bdcc111';
+const aUrl = 'https://airplanegame-0e10.restdb.io/rest/accounts';
+const aKey = '65c2fea74405e1eb04db0819';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');
@@ -24,15 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    const storedHighScore = sessionStorage.getItem('highScore');
-    if (storedHighScore) {
-        highScore = parseInt(storedHighScore);
-        updateHighScoreDisplay();
-    } else {
-        // If no local high score is found, fetch the high score from the database
-        getHighScore(username); // Assuming you have the username available
-    }
-
+    const storedHighScore = sessionStorage.getItem('highscore');
+    console.log(storedHighScore);
     // Function to get high score
     function getHighScore(username) {
         // Fetch user data based on the username
