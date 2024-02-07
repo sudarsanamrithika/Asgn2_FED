@@ -1,5 +1,5 @@
-const aUrl = 'https://airplanegame-0e10.restdb.io/rest/accounts';
-const aKey = '65c2fea74405e1eb04db0819';
+const aUrl = 'https://airplanegame-5919.restdb.io/rest/accounts';
+const aKey = '65c39b770aabdff3c79bfb8b';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');

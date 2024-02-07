@@ -1,5 +1,5 @@
-const APIURL = 'https://airplanegame-0e10.restdb.io/rest/accounts';
-const APIKEY = '65c2fea74405e1eb04db0819';
+const APIURL = 'https://airplanegame-5919.restdb.io/rest/accounts';
+const APIKEY = '65c39b770aabdff3c79bfb8b';
 
 // Function to fetch all high scores from different accounts
 async function fetchAllHighScores() {
@@ -25,9 +25,10 @@ async function fetchAllHighScores() {
 
 async function renderLeaderboard() {
     const podium = document.getElementById('podium');
+    const profile = document.getElementById('profile');
     const leaderboardList = document.getElementById('leaderboard-list');
-    podium.innerHTML = ''; // Clear previous podium data
-    leaderboardList.innerHTML = ''; // Clear previous leaderboard data
+    podium.innerHTML = ''; 
+    leaderboardList.innerHTML = ''; 
 
     try {
         // Fetch high scores
@@ -39,11 +40,14 @@ async function renderLeaderboard() {
             const podiumElement = document.createElement('div');
             podiumElement.classList.add('top-player');
             // Reorder podium
-            if (i === 0) {
+            if (i === 1) {
+                profile.src = player.profilePic;
                 podiumElement.textContent = '2nd. ' + player.username + ': ' + player.highscore;
-            } else if (i === 1) {
+            } else if (i === 0) {
+                profile.src = player.profilePic;
                 podiumElement.textContent = '1st. ' + player.username + ': ' + player.highscore;
             } else {
+                profile.src = player.profilePic;
                 podiumElement.textContent = '3rd. ' + player.username + ': ' + player.highscore;
             }
             podium.appendChild(podiumElement);

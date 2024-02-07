@@ -9,8 +9,8 @@ const uQuote = document.getElementById('quote');
 const currentEmail = sessionStorage.getItem("email");
 const deleteContainer = document.getElementById('delete-container');
 const delay = 5000;
-const apiUrl = 'https://airplanegame-0e10.restdb.io/rest/accounts';
-const apiKey = '65c2fea74405e1eb04db0819';
+const apiUrl = 'https://airplanegame-5919.restdb.io/rest/accounts';
+const apiKey = '65c39b770aabdff3c79bfb8b';
 
 function postData() {
   const username = document.getElementById('username').value;
