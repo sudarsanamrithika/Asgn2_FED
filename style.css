@@ -438,7 +438,7 @@ ul.no-bullets {
   justify-content: center;
 }
 
-#loading-container, #delete-container {
+#loading-container, #delete-container, #update-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -450,16 +450,74 @@ ul.no-bullets {
   justify-content: center;
 }
 
-#update-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
+/* Styles for podium */
+.podium {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.top-player {
+  width: 30%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.first-place {
+  margin: 0 auto; /* This will center the player in first position */
+}
+
+.profile-pic {
+  width: 50px; /* Adjust size of profile picture */
+  height: 50px; /* Adjust size of profile picture */
+  background-color: #ccc; /* Placeholder color for profile picture */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.info {
+  text-align: center;
+}
+
+.circle {
+  position: absolute;
+  top: -30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+/* Styles for leaderboard list */
+.leaderboard-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.leaderboard-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.highscore {
+  margin-left: auto;
+}
+
+.username {
+  margin-right: auto;
 }
 
 #popup-content {
