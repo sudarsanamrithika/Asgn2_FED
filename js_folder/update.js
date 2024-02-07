@@ -1,3 +1,6 @@
+const aUrl = 'https://airplanegame-0e10.restdb.io/rest/accounts';
+const aKey = '65c2fea74405e1eb04db0819';
+
 function closeUpdate() {
     updateContainer.classList.add('hidden');
     location.reload();
@@ -23,7 +26,7 @@ document.getElementById('update-form').addEventListener('submit', function(event
     event.preventDefault(); // Prevent form submission
   
     const newEmail = document.getElementById('new-email').value;
-    const newProfilePic = document.getElementById('new-profile-pic').value;
+    const newProfilePic = document.getElementById('new-profile').value;
     const newQuote = document.getElementById('new-quote').value;
     
     const newData = {

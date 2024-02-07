@@ -2,7 +2,6 @@ const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
 const deleteContainer = document.getElementById('delete-container');
 const closeBtn = document.getElementById('close-btn');
-const cUser = document.getElementById('currentUsername');
 const wBack = document.getElementById('welcome-back');
 const uEmail = document.getElementById('userEmail');
 const profile = document.getElementById('profile');
@@ -149,20 +148,19 @@ function closePopup() {
   location.reload();
 }
 
-document.getElementById('delete-account-btn').addEventListener('click', function() {
-  const username = sessionStorage.getItem('username'); 
-  if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
-    deleteAccount(username);  
-  };
-});
+// document.getElementById('delete-account-btn').addEventListener('click', function() {
+//   const username = sessionStorage.getItem('username'); 
+//   if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
+//     deleteAccount(username);  
+//   };
+// });
 
-const currentUsername = sessionStorage.getItem("username");
+
 const currentEmail = sessionStorage.getItem("email");
 const imgSrc = sessionStorage.getItem('profile');
 const userQuote = sessionStorage.getItem('quote');
 const highscore = sessionStorage.getItem('highscore');
 profile.src = imgSrc;
-cUser.textContent = `${currentUsername}!!!`;
 uEmail.textContent = `${currentEmail}`;
 uQuote.textContent = `${userQuote}`;
 highScore.textContent = `${highscore}`;

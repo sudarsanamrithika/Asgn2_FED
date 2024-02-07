@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalScoreSpan = document.getElementById('final-score');
     const playAgainBtn = document.getElementById('play-again-btn');
     const goHomeBtn = document.getElementById('go-home-btn');
-    const username = document.getElementById("username");
+    const username = sessionStorage.getItem('username');
     
     let score = 0;
     let highScore = 0;
@@ -26,33 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const storedHighScore = sessionStorage.getItem('highscore');
     console.log(storedHighScore);
-    // Function to get high score
-    function getHighScore(username) {
-        // Fetch user data based on the username
-        fetch(`${aUrl}?q={"username":"${username}"}`, {
-            method: 'GET',
-            headers: {
-            'Content-Type': 'application/json',
-            'x-apikey': aKey,
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-        // Check if user with provided username exists
-        if (data.length > 0) {
-            const userHighScore = data[0].highscore;
-            console.log(`High score for ${username}: ${userHighScore}`);
-            return userHighScore;
-        } 
-        else {
-            console.log('User not found in highscores collection.');
-        }
-        })
-        .catch(error => {
-            console.error('Error while getting high score:', error);
-        });
-    }
-  
+    updateHighScoreDisplay();
+
     function moveAirplane(distance) {
         const currentPosition = parseInt(airplane.style.left) || 0;
         airplane.style.left = `${currentPosition + distance}px`;
@@ -119,11 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.length > 0) {
+            if (data && data.length > 0) {
                 const userData = data[0];
                 userData.highscore = newHighScore; // Corrected variable name
-
-                fetch(`${aUrl}/${userData._id}`, {
+    
+                fetch(`${aUrl}?q={"username":"${userData.username}"}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -146,9 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error while getting high score:', error);
         });
     }
+    
 
     function updateHighScoreDisplay() {
-        highScoreDisplay.textContent = `${highScore}`;
+        highScoreDisplay.textContent = `${newHighScore}`;
     }
     
     setInterval(createObstacle, 2000);
@@ -158,10 +134,11 @@ document.addEventListener('DOMContentLoaded', function () {
         score += 1;
         scoreDisplay.textContent = `${score}`;
   
-        if (score > highScore) {
+        if (score > storedHighScore) {
             newHighScore = score;
             updateHighScoreDisplay();
-            localStorage.setItem('highScore', newHighScore);
+            sessionStorage.setItem('highscore', newHighScore);
+            updateHighScore(username, newHighScore)
             return newHighScore;
         }
         else {
@@ -176,8 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameStartTime = new Date().getTime();
   
     function endGame() {
-        console.log(localStorage.getItem('highScore'))
-        updateHighScore(username, localStorage.getItem('highScore'));
+        updateHighScore(username, sessionStorage.getItem('highscore'));
         finalScoreSpan.textContent = newScore;
         popupContainer.classList.remove('hidden');
     }
