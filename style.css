@@ -42,6 +42,17 @@ h1 {
   margin-top: 5%;
 }
 
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.update-form {
+  margin: 5%;
+}
+
 .profile-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
@@ -155,6 +166,10 @@ button {
   background-color: #b5d7ff;
 }
 
+.play-button {
+  margin: 5% 5%;
+}
+
 .logout-button {
   height: auto;
   padding: 50px 100px;
@@ -179,6 +194,7 @@ button {
 .column {
   float: left;
   padding: 5px;
+  position: relative;
 }
 
 .column img {
@@ -446,14 +462,19 @@ ul.no-bullets {
   visibility: hidden;
 }
 
-
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  text-align: center;
+}
 
 @media screen and (max-width: 500px) {
   .container {
     flex-direction: column;
-  }
-  .split {
-    margin: 5%;
   }
 
   .split img {
@@ -486,7 +507,7 @@ ul.no-bullets {
     color: white;
   }
 
-  .login-form, .signup-form {
+  .login-form, .signup-form, .update-form {
     background-color: #f3fdff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;

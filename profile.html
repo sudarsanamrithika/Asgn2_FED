@@ -26,6 +26,16 @@
       }
     }
 
+
+    .row {
+      display: flex;
+    }
+
+    .column {
+      flex: 50%;
+      padding: 5px;
+    }
+
     body {
       background-image: url('imgs/background_img/cloud_bg2.png');
       background-repeat: no-repeat;
@@ -54,38 +64,40 @@
         </ul>		  
       </div>
     </div>
-  </nav>5
+  </nav>
 
   <div class="profile-card">
     <div class="profile-section">
-      <div class="container">
-        <div class="split">
-          <img id="profile" src="" alt="profile picture">
-          <ul class="no-bullets">
-            <li class="round-box" id="currentUsername">USERNAME</li>
-            <li class="round-box" id="userEmail">EMAIL</li>
-            <li class="round-box" id="quote">QUOTE</li>
-          </ul>
-        </div>
-        <div class="split-right"> 
-          Games Played
-          <div class="round-box">HELP</div>
-          Highscore
-          <div class="round-box" id="highscore">HELP</div>
-          Total Obstacles Dodged
-          <div class="round-box">HELP</div>
-          Rank
-          <div class="round-box">HELP</div>
-          HELP
-          <div class="round-box">HELP</div>
+      <img id="profile" src="" alt="profile picture">
+        <ul class="no-bullets">
+          <li class="round-box" id="currentUsername">USERNAME</li>
+          <li class="round-box" id="userEmail">EMAIL</li>
+          <li class="round-box" id="quote">QUOTE</li>
+        </ul>
+      </div>
 
+      <div class="center">
+        STATS
+      </div>
+      <div class="row">
+        <div class="column">
+          <img src="imgs/cloud_stats.PNG" alt="Snow" style="width:100%">
+          <div class="overlay-text" id="highscore">
+            Highscore
+          </div>
         </div>
-      </div>  
+        <div class="column">
+          <img src="imgs/cloud_stats.PNG" alt="Forest" style="width:100%">
+          <div class="overlay-text" id="rank">
+            Highscore
+          </div>
+        </div>
+      </div>
+      <a href="update_data.html">
+        <button class="play-button">Update</button>
+      </a>
     </div>
-    <a href="update_data.html">
-      <button class="btn">Update</button>
-    </a>
-
+    
   </div>
   <div class="container-logout-delete">
     <div class="split">

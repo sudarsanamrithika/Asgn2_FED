@@ -4,8 +4,8 @@ const closeBtn = document.getElementById('close-btn');
 const wBack = document.getElementById('welcome-back');
 const deleteContainer = document.getElementById('delete-container');
 const delay = 5000;
-const apiUrl = 'https://airplanegame-5919.restdb.io/rest/accounts';
-const apiKey = '65c39b770aabdff3c79bfb8b';
+const apiUrl = 'https://airplane-e86d.restdb.io/rest/accounts';
+const apiKey = '65c3c8418fe3ef1ccd7a3049';
 
 function postData() {
   const username = document.getElementById('username').value;

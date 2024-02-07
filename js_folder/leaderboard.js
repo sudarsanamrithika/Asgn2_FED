@@ -1,5 +1,5 @@
-const APIURL = 'https://airplanegame-5919.restdb.io/rest/accounts';
-const APIKEY = '65c39b770aabdff3c79bfb8b';
+const APIURL = 'https://airplane-e86d.restdb.io/rest/accounts';
+const APIKEY = '65c3c8418fe3ef1ccd7a3049';
 
 // Function to fetch all high scores from different accounts
 async function fetchAllHighScores() {

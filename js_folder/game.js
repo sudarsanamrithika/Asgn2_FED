@@ -1,5 +1,5 @@
-const aUrl = 'https://airplanegame-5919.restdb.io/rest/accounts';
-const aKey = '65c39b770aabdff3c79bfb8b';
+const aUrl = 'https://airplane-e86d.restdb.io/rest/accounts';
+const aKey = '65c3c8418fe3ef1ccd7a3049';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');
@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const goHomeBtn = document.getElementById('go-home-btn');
     const username = sessionStorage.getItem('username');
     
-    let score = 0;
-    let highScore = 0;
-    let newScore = 0;
+    var score = 0;
+    var highScore = 0;
+    var newScore = 0;
+    var collide = false;
   
     document.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
@@ -84,8 +85,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function updateHighScore(username, newHighScore) {
-        fetch(`${aUrl}?q={"username":"${username}"}`, {
+    function updateHighScore(username, highScore) {
+        if (collide = true) {
+            console.log("FETCH DOES NOT RUN");
+            return;
+        }
+
+        else {
+            collide = true;
+        }
+        fetch(`${aUrl}?q={"username":${username}}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -94,11 +103,13 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            if (data && data.length > 0) {
-                const userData = data[0];
-                userData.highscore = newHighScore; // Corrected variable name
+            console.log("DATA RUNNING");
+            console.log(data.length > 0);
+            if (data.length > 0) {
+                var userData = data[0];
+                userData.highscore = highScore; // Corrected variable name
     
-                fetch(`${aUrl}?q={"username":"${userData.username}"}`, {
+                fetch(`${aUrl}?q={"username":"${username}"}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -106,10 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     body: JSON.stringify(userData),
                 })
-                .then(response => response.json())
-                .then(updatedData => {
-                    console.log(`High score for ${username} updated to ${newHighScore}`);
-                })
+                .then(response => response.json(),
+                    console.log(`High score for ${username} updated to ${highScore}`)
+                )
                 .catch(error => {
                     console.error('Error updating high score:', error);
                 });
@@ -122,9 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     
-
     function updateHighScoreDisplay() {
-        highScoreDisplay.textContent = `${newHighScore}`;
+        highScoreDisplay.textContent = `${highScore}`;
     }
     
     setInterval(createObstacle, 2000);
@@ -135,15 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
         scoreDisplay.textContent = `${score}`;
   
         if (score > storedHighScore) {
-            newHighScore = score;
-            console.log(newHighScore);
+            highScore = score;
             updateHighScoreDisplay();
-            sessionStorage.setItem('highscore', newHighScore);
-            updateHighScore(username, sessionStorage.getItem('highscore'));
-            return newHighScore;
-        }
-        else {
-            return score;
+            sessionStorage.setItem('highscore', highScore);
         }
     }
 
@@ -154,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameStartTime = new Date().getTime();
   
     function endGame() {
-        updateHighScore(username, sessionStorage.getItem('highscore'));
+        updateHighScore(username, 12);
         finalScoreSpan.textContent = newScore;
         popupContainer.classList.remove('hidden');
     }
