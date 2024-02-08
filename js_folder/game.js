@@ -13,10 +13,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
     
     var score = 0;
-    var highScore = 0;
+    var highScore = sessionStorage.getItem('highscore') || 0;
     var newScore = 0;
     var collide = false;
   
+    const storedHighScore = sessionStorage.getItem('highscore');
+    console.log(storedHighScore);
+    updateHighScoreDisplay();
+
+    // Touch input handling
+    let touchStartX = 0;
+
+    gameContainer.addEventListener('touchstart', function (event) {
+        touchStartX = event.touches[0].clientX;
+    });
+
+    gameContainer.addEventListener('touchend', function (event) {
+        const touchEndX = event.changedTouches[0].clientX;
+        const swipeThreshold = 50;
+
+        if (touchEndX - touchStartX > swipeThreshold && airplane.style.left !== '0px') {
+            moveAirplane(-20);
+        } else if (touchEndX - touchStartX < -swipeThreshold && airplane.style.left !== '360px') {
+            moveAirplane(20);
+        }
+    });
+
     document.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
             moveAirplane(-20);
@@ -25,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    const storedHighScore = sessionStorage.getItem('highscore');
-    console.log(storedHighScore);
-    updateHighScoreDisplay();
-
+    function moveAirplane(distance) {
+        const currentPosition = parseInt(airplane.style.left) || 0;
+        airplane.style.left = `${currentPosition + distance}px`;
+    }
     function moveAirplane(distance) {
         const currentPosition = parseInt(airplane.style.left) || 0;
         airplane.style.left = `${currentPosition + distance}px`;
