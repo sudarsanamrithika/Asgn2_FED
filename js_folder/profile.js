@@ -1,17 +1,19 @@
 const apiUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
 const apiKey = '65b380d5802d9b35afa680d5';
 
-const imgSrc = sessionStorage.getItem('profile');
-const userQuote = sessionStorage.getItem('quote');
-const highscore = sessionStorage.getItem('highscore');
 const highScore = document.getElementById('highscore');
 const uEmail = document.getElementById('userEmail');
 const profile = document.getElementById('profile');
 const uQuote = document.getElementById('quote');
-const currentEmail = sessionStorage.getItem("email");
 const cUser = document.getElementById('currentUsername');
-const currentUsername = sessionStorage.getItem("username");
 const deleteContainer = document.getElementById('delete-container');
+
+const currentEmail = sessionStorage.getItem("email");
+const currentUsername = sessionStorage.getItem("username");
+const imgSrc = sessionStorage.getItem('profile');
+const userQuote = sessionStorage.getItem('quote');
+const highscore = sessionStorage.getItem('highscore');
+
 cUser.textContent = `${currentUsername}`;
 profile.src = imgSrc;
 uEmail.textContent = `${currentEmail}`;
@@ -63,5 +65,8 @@ document.getElementById('delete-account-btn').addEventListener('click', function
       deleteAccount(username);  
     };
 });
+
+
+
   
 

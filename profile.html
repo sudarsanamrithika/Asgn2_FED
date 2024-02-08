@@ -6,20 +6,14 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <script src="script.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage</title>
   <style>
-    @media screen and (max-width: 500px) {
-      .split img {
-        width: 350px;
-        height: 450px;
-      }
-    }
-
-
     .row {
       display: flex;
     }
@@ -35,8 +29,6 @@
       background-attachment: fixed;
       background-size: cover;
     }
-
-
   </style>
 </head>
 
@@ -71,20 +63,23 @@
       </ul>
     </div>
 
-    <div class="center">
-      STATS
-    </div>
     <div class="row">
       <div class="column">
         <img src="imgs/cloud_stats.PNG" alt="Snow" style="width:100%">
-        <div class="overlay-text" id="highscore">
+        <div class="overlay-text">
           Highscore
+          <div id="highscore">
+            Highscore
+          </div>
         </div>
       </div>
       <div class="column">
         <img src="imgs/cloud_stats.PNG" alt="Forest" style="width:100%">
-        <div class="overlay-text" id="rank">
-          Highscore
+        <div class="overlay-text">
+          Rank
+          <div id="rank">
+            Not yet implemented
+          </div>
         </div>
       </div>
     </div>
