@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(storedHighScore);
     updateHighScoreDisplay();
 
-    // Touch input handling
     let touchStartX = 0;
 
     gameContainer.addEventListener('touchstart', function (event) {
@@ -32,29 +31,29 @@ document.addEventListener('DOMContentLoaded', function () {
         const touchEndX = event.changedTouches[0].clientX;
         const swipeThreshold = 50;
 
-        if (touchEndX - touchStartX > swipeThreshold && airplane.style.left !== '0px') {
+        if (touchEndX - touchStartX > swipeThreshold && airplane.offsetLeft !== 0) {
             moveAirplane(-20);
-        } else if (touchEndX - touchStartX < -swipeThreshold && airplane.style.left !== '360px') {
+        } else if (touchEndX - touchStartX < -swipeThreshold && airplane.offsetLeft !== (gameContainer.offsetWidth - airplane.offsetWidth)) {
             moveAirplane(20);
         }
     });
 
     document.addEventListener('keydown', function (event) {
-        if (event.key === 'ArrowLeft' && airplane.style.left !== '0px') {
+        if (event.key === 'ArrowLeft' && airplane.offsetLeft !== 0) {
             moveAirplane(-20);
-        } else if (event.key === 'ArrowRight' && airplane.style.left !== '360px') {
+        } else if (event.key === 'ArrowRight' && airplane.offsetLeft !== (gameContainer.offsetWidth - airplane.offsetWidth)) {
             moveAirplane(20);
         }
     });
 
     function moveAirplane(distance) {
-        const currentPosition = parseInt(airplane.style.left) || 0;
-        airplane.style.left = `${currentPosition + distance}px`;
+        const currentPosition = airplane.offsetLeft;
+        const newPosition = currentPosition + distance;
+        if (newPosition >= 0 && newPosition <= (gameContainer.offsetWidth - airplane.offsetWidth)) {
+            airplane.style.left = newPosition + 'px';
+        }
     }
-    function moveAirplane(distance) {
-        const currentPosition = parseInt(airplane.style.left) || 0;
-        airplane.style.left = `${currentPosition + distance}px`;
-    }
+
 
     function createObstacle() {
         const obstacle = document.createElement('div');
@@ -179,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameStartTime = new Date().getTime();
   
     function endGame() {
-        updateHighScore(username, 12);
+        updateHighScore(username, sessionStorage.getItem('highscore'));
         finalScoreSpan.textContent = newScore;
         popupContainer.classList.remove('hidden');
     }

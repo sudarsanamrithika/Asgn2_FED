@@ -525,4 +525,42 @@ ul.no-bullets {
     border-radius: 30px;
     padding: 15% 0%;
   }
+
+  #game-container {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    overflow: hidden;
+    border: 2px solid #000;
+    background-color: #afeaff;
+  }
+
+  #airplane {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+    background-image: url('imgs/plane.PNG');
+    bottom: 20px;
+    background-size: cover;
+    transition: left 0.1s ease; 
+  }
+
+  #score {
+    font-size: 24px;
+    text-align: left;
+    color: #000;
+    margin-right: 150px;
+  }
+  
+  .obstacle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    animation: moveObstacle linear infinite;
+  }
+
+  .font-size-30px {
+    font-size: 15px;
+  }
 }
