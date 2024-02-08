@@ -11,6 +11,7 @@ const uQuote = document.getElementById('quote');
 const currentEmail = sessionStorage.getItem("email");
 const cUser = document.getElementById('currentUsername');
 const currentUsername = sessionStorage.getItem("username");
+const deleteContainer = document.getElementById('delete-container');
 cUser.textContent = `${currentUsername}`;
 profile.src = imgSrc;
 uEmail.textContent = `${currentEmail}`;
@@ -46,7 +47,7 @@ function deleteAccount(username) {
             deleteContainer.classList.remove('hidden');
             setTimeout(() => {
               window.location.href = 'index.html';
-            }, delay);
+            }, 500044);
         } else {
             console.error('Error deleting account:', deletedResponse.statusText);
         }
