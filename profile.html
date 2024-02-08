@@ -3,26 +3,25 @@
 
 <head>
   <link type="text/css" rel="stylesheet" href="normalize.css" />
-  <link rel = "stylesheet" href = "style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  
   <script src="script.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage</title>
   <style>
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       .split img {
         width: 350px;
         height: 450px;
       }
 
       .profile-section {
-      flex-direction: column;
-      padding-left: 1%;
-      align-items: center;
+        flex-direction: column;
+        padding-left: 1%;
+        align-items: center;
       }
     }
 
@@ -46,22 +45,24 @@
 
   </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-sm navbar-light bg-pale-blue fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-pale-blue fixed-top">
     <div class="container-fluid">
-      <a href="home.html"><div class="navbar-brand">TRAVELFAR</div></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="home.html">TRAVELFAR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button> 
+      </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="home.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="">Profile</a>
-          </li>			
-        </ul>		  
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -69,36 +70,32 @@
   <div class="profile-card">
     <div class="profile-section">
       <img id="profile" src="" alt="profile picture">
-        <ul class="no-bullets">
-          <li class="round-box" id="currentUsername">USERNAME</li>
-          <li class="round-box" id="userEmail">EMAIL</li>
-          <li class="round-box" id="quote">QUOTE</li>
-        </ul>
-      </div>
-
-      <div class="center">
-        STATS
-      </div>
-      <div class="row">
-        <div class="column">
-          <img src="imgs/cloud_stats.PNG" alt="Snow" style="width:100%">
-          <div class="overlay-text" id="highscore">
-            Highscore
-          </div>
-        </div>
-        <div class="column">
-          <img src="imgs/cloud_stats.PNG" alt="Forest" style="width:100%">
-          <div class="overlay-text" id="rank">
-            Highscore
-          </div>
-        </div>
-      </div>
-      <a href="update_data.html">
-        <button class="play-button">Update</button>
-      </a>
+      <ul class="no-bullets">
+        <li class="round-box" id="currentUsername">USERNAME</li>
+        <li class="round-box" id="userEmail">EMAIL</li>
+        <li class="round-box" id="quote">QUOTE</li>
+      </ul>
     </div>
-    
+
+    <div class="center">
+      STATS
+    </div>
+    <div class="row">
+      <div class="column">
+        <img src="imgs/cloud_stats.PNG" alt="Snow" style="width:100%">
+        <div class="overlay-text" id="highscore">
+          Highscore
+        </div>
+      </div>
+      <div class="column">
+        <img src="imgs/cloud_stats.PNG" alt="Forest" style="width:100%">
+        <div class="overlay-text" id="rank">
+          Highscore
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="container-logout-delete">
     <div class="split">
       <a href="index.html">
@@ -106,23 +103,23 @@
           <div class="font-size-20px">
             LOGOUT
           </div>
-        </button> 
+        </button>
       </a>
     </div>
     <div class="split-right">
       <button class="delete-button" id="delete-account-btn">
         <div class="font-size-20px">
           DELETE
-        </div>  
+        </div>
       </button>
     </div>
   </div>
 
   <div id="delete-container" class="hidden">
     <div id="loading-content">
-      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/78af4617-0097-42fd-a137-9d5bcca2d34b/4XduP4vybJ.json" 
-      background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+      <dotlottie-player src="https://lottie.host/78af4617-0097-42fd-a137-9d5bcca2d34b/4XduP4vybJ.json"
+        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
       <div class="center">
         Account successfully deleted!<br>
         Landing on home page...
@@ -132,5 +129,8 @@
 
   <script src="js_folder/profile.js"></script>
   <script src="js_folder/update.js"></script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 </body>
+
+</html>

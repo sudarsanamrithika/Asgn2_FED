@@ -160,10 +160,14 @@ button {
 
 .left-button, .right-button, .play-button {
   height: auto;
-  padding: 50px 100px;
+  padding: 25px 70px;
   border-radius: 1000px;
   border: none;
   background-color: #b5d7ff;
+}
+
+.left-button:hover, .right-button:hover, .play-button:hover {
+  background-color: #70a8e7;
 }
 
 .play-button {
