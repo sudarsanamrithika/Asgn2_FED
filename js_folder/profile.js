@@ -1,3 +1,6 @@
+const apiUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
+const apiKey = '65b380d5802d9b35afa680d5';
+
 const imgSrc = sessionStorage.getItem('profile');
 const userQuote = sessionStorage.getItem('quote');
 const highscore = sessionStorage.getItem('highscore');

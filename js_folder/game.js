@@ -1,5 +1,5 @@
-const aUrl = 'https://airplane-e86d.restdb.io/rest/accounts';
-const aKey = '65c3d0168fe3ef65267a3210';
+const aUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
+const aKey = '65b380d5802d9b35afa680d5';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');
@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var score = 0;
     var highScore = sessionStorage.getItem('highscore') || 0;
     var newScore = 0;
+    var gameOver = false;
     var collide = false;
   
     const storedHighScore = sessionStorage.getItem('highscore');
-    console.log(storedHighScore);
     updateHighScoreDisplay();
 
     let touchStartX = 0;
@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function createObstacle() {
+        if (gameOver) {
+            return; // Do nothing if the game is over
+        }
         const obstacle = document.createElement('div');
         obstacle.classList.add('obstacle');
         const randomPosition = Math.floor(Math.random() * 360);
@@ -107,15 +110,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateHighScore(username, highScore) {
-        if (collide = true) {
-            console.log("FETCH DOES NOT RUN");
+        if (collide === true)
+        {
+            console.log('already run');
             return;
         }
-
-        else {
+        else 
+        {
             collide = true;
         }
-        fetch(`${aUrl}?q={"username":${username}}`, {
+        fetch(`${aUrl}?q={"username":"${username}"}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -124,13 +128,11 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log("DATA RUNNING");
-            console.log(data.length > 0);
             if (data.length > 0) {
                 var userData = data[0];
-                userData.highscore = highScore; // Corrected variable name
+                userData.highscore = highScore; 
     
-                fetch(`${aUrl}?q={"username":"${username}"}`, {
+                fetch(`${aUrl}/${userData._id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -138,9 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     body: JSON.stringify(userData),
                 })
-                .then(response => response.json(),
-                    console.log(`High score for ${username} updated to ${highScore}`)
-                )
+                .then(response => response.json())
+                .then(() => console.log(`High score for ${username} updated to ${highScore}`))
                 .catch(error => {
                     console.error('Error updating high score:', error);
                 });
@@ -177,10 +178,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     gameStartTime = new Date().getTime();
   
-    function endGame() {
-        updateHighScore(username, sessionStorage.getItem('highscore'));
+    async function endGame() {
+        newScore = score;
         finalScoreSpan.textContent = newScore;
         popupContainer.classList.remove('hidden');
+        // Set the game over flag to true
+        gameOver = true;
+    
+        // Wait for any pending asynchronous operations to complete before updating the high score
+        await new Promise((resolve) => setTimeout(resolve, 100)); // Adjust the timeout value as needed
+    
+        // Update the high score after all operations are completed
+        updateHighScore(username, newScore);
     }
   
     function resetGame() {
@@ -200,6 +209,4 @@ document.addEventListener('DOMContentLoaded', function () {
         popupContainer.classList.add('hidden');
         window.location.href = 'home.html';
     });
-
-    
-});
+}); 

@@ -4,8 +4,8 @@ const closeBtn = document.getElementById('close-btn');
 const wBack = document.getElementById('welcome-back');
 const deleteContainer = document.getElementById('delete-container');
 const delay = 5000;
-const apiUrl = 'https://airplane-e86d.restdb.io/rest/accounts';
-const apiKey = '65c3d0168fe3ef65267a3210';
+const apiUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
+const apiKey = '65b380d5802d9b35afa680d5';
 
 function postData() {
   const username = document.getElementById('username').value;

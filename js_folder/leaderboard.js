@@ -1,5 +1,5 @@
-const APIURL = 'https://airplane-e86d.restdb.io/rest/accounts';
-const APIKEY = '65c3d0168fe3ef65267a3210';
+const APIURL = 'https://bookish-bdb3.restdb.io/rest/accounts';
+const APIKEY = '65b380d5802d9b35afa680d5';
 
 // Function to fetch all high scores from different accounts
 async function fetchAllHighScores() {
@@ -64,14 +64,6 @@ async function renderLeaderboard() {
         leaderboardList.innerHTML = '<li>Error fetching leaderboard data</li>';
     }
 }
-
-// Render leaderboard when the page loads
-document.addEventListener('DOMContentLoaded', renderLeaderboard);
-
-
-// Render leaderboard when the page loads
-document.addEventListener('DOMContentLoaded', renderLeaderboard);
-
 
 // Render leaderboard when the page loads
 document.addEventListener('DOMContentLoaded', renderLeaderboard);
