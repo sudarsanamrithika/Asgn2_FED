@@ -94,6 +94,7 @@ function login() {
   })
   .catch(error => {
     console.error('Error fetching user data:', error);
+    popupContainer.classList.remove('hidden');
   });
 
   sessionStorage.setItem("username", loginUsername);
