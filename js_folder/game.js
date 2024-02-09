@@ -159,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     setInterval(createObstacle, 2000);
-    gameStartTime = new Date().getTime();
 
     function increaseScore() {
         score += 1;
@@ -175,8 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateHighScoreDisplay() {
         highScoreDisplay.textContent = `${highScore}`;
     }
-
-    gameStartTime = new Date().getTime();
   
     async function endGame() {
         newScore = score;

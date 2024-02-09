@@ -25,7 +25,6 @@ async function fetchAllHighScores() {
 
 async function renderLeaderboard() {
     const podium = document.getElementById('podium');
-    const profile = document.getElementById('profile');
     const leaderboardList = document.getElementById('leaderboard-list');
     podium.innerHTML = ''; 
     leaderboardList.innerHTML = ''; 
@@ -41,13 +40,10 @@ async function renderLeaderboard() {
             podiumElement.classList.add('top-player');
             // Reorder podium
             if (i === 1) {
-                profile.src = player.profilePic;
                 podiumElement.textContent = '2nd. ' + player.username + ': ' + player.highscore;
             } else if (i === 0) {
-                profile.src = player.profilePic;
                 podiumElement.textContent = '1st. ' + player.username + ': ' + player.highscore;
             } else {
-                profile.src = player.profilePic;
                 podiumElement.textContent = '3rd. ' + player.username + ': ' + player.highscore;
             }
             podium.appendChild(podiumElement);
@@ -63,6 +59,14 @@ async function renderLeaderboard() {
         console.error('Error rendering leaderboard:', error);
         leaderboardList.innerHTML = '<li>Error fetching leaderboard data</li>';
     }
+}
+
+function goToLoginPage() {
+    window.location.href="login.html";
+}
+
+function goToSignUp() {
+    window.location.href = "signup.html";
 }
 
 // Render leaderboard when the page loads

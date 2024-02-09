@@ -63,8 +63,12 @@ document.getElementById('delete-account-btn').addEventListener('click', function
     const username = sessionStorage.getItem('username'); 
     if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
       deleteAccount(username);  
-    };
+    }
 });
+
+function logout() {
+    window.location.href = "index.html";
+}
 
 
 

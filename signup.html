@@ -25,20 +25,19 @@
 
 <body> 
     <div class="container">
-        <div class="align-center">
-            <div class="signup-form">
-                <div class="font-size-30px"><b>Sign Up</b></div>
-                  <form id="data-post-form" method="GET">
-                    <p><input type="text" placeholder="Username" id="username" minlength="8" maxlength="20" required/></p>
-                    <p><input type="email" placeholder="Email" id="email" required/></p>
-                    <p><input type="password" placeholder="Password" id="password" required/></p>
-                    <button type="button" onclick="postData()">Sign Up</button>
-                    <p></p>
-                    Already have an account? <a href="login.html">Login</a>
-                  </form>
-              </div>
-            </div>
+      <div class="align-center">
+        <div class="signup-form">
+          <div class="font-size-30px"><b>Sign Up</b></div>
+          <form id="data-post-form" method="GET">
+            <p><input type="text" placeholder="Username" id="username" minlength="8" maxlength="20" required/></p>
+            <p><input type="email" placeholder="Email" id="email" required/></p>
+            <p><input type="password" placeholder="Password" id="password" required/></p>
+            <button type="button" onclick="postData()">Sign Up</button>
+            <p></p>
+            Already have an account? <a href="login.html">Login</a>
+          </form>
         </div>
+      </div>
     </div>
 
     <div id="popup-container" class="hidden">
@@ -46,7 +45,7 @@
         <span id="close-btn" onclick="closePopup()">X</span>
         <div class="center">
           <h2>Error signing up!</h2>
-          <p>Check that username and email are unique, or</br>
+          <p>Check that username and email are unique, or<br>
           <a href="login.html">login</a> to an existing account.</p>
         </div>
       </div>

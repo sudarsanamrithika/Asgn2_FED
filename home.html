@@ -32,9 +32,6 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html" id="currentUsername"></a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="profile.html">Profile</a>
           </li>
         </ul>
@@ -53,28 +50,20 @@
     </div>
 
     <div class="align-center">
-      <a href="game.html">
-        <div class="font-size-30px">
-          <button class="play-button">PLAY</button>
-        </div>
-      </a>
+      <div class="font-size-30px">
+        <button class="play-button" onclick="goToGamePage()">PLAY</button>
+      </div>
 
       <div class="font-size-30px">Leaderboard</div>
       <div class="margin-top">
         <div class="podium" id="podium">
           <div class="top-player-card second-place" id="second-place">
-            <img class="crown" src="imgs/silver.PNG" alt="Crown image">
-            <img id="profile" src="" alt="profile picture">
             <div class="info"></div>
           </div>
           <div class="top-player-card first-place" id="first-place">
-            <img class="crown" src="imgs/silver.PNG" alt="Crown image">
-            <img id="profile" src="" alt="profile picture">
             <div class="info"></div>
           </div>
           <div class="top-player-card third-place" id="third-place">
-            <img id="profile" src="" alt="profile picture">
-            <img class="crown" src="imgs/silver.PNG" alt="Crown image">
             <div class="info"></div>
           </div>
         </div>
@@ -84,10 +73,9 @@
   </div>
   <script src="js_folder/script.js"></script>
   <script src="js_folder/leaderboard.js"></script>
-
-  <!-- Bootstrap JS (Optional, if you want to use Bootstrap JS features) -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

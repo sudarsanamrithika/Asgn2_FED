@@ -17,24 +17,22 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm navbar-light bg-pale-blue fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-pale-blue fixed-top">
     <div class="container-fluid">
-      <div class="navbar-brand">FlyFar</div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="home.html">FlyFar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>			
-          <li class="nav-item">
-            <a class="nav-link" href="signup.html">Sign up</a>
+            <a class="nav-link active"  aria-current="page" href="#">Profile</a>
           </li>
-        </ul>		  
+        </ul>
       </div>
     </div>
   </nav>
@@ -48,40 +46,29 @@
     </div>
     <div class="align-center">
       <div class="button-container">
-        <a href="login.html">
-          <div class="font-size-30px">
-            <button class="left-button">LOGIN</button>
-          </div>
-        </a>
-        <a href="signup.html">
-          <div class="font-size-30px">
-            <button class="right-button">SIGN UP</button>
-          </div>5
-        </a>
+        <div class="font-size-30px">
+          <button class="left-button" onclick="goToLoginPage()">LOGIN</button>
+        </div>
+        <div class="font-size-30px">
+          <button class="right-button" onclick="goToSignUpPage()">SIGN UP</button>
+        </div>
       </div>
 
       <div class="font-size-30px">Leaderboard</div>
       <div class="margin-top">
         <div class="podium" id="podium">
           <div class="top-player-card second-place" id="second-place">
-            <img class="crown" src="imgs/silver.PNG" alt="Crown image">
-            <img id="profile" src="" alt="profile picture">
             <div class="info"></div>
           </div>
           <div class="top-player-card first-place" id="first-place">
-            <img class="crown" src="imgs/silver.PNG" alt="Crown image">
-            <img id="profile" src="" alt="profile picture">
             <div class="info"></div>
           </div>
           <div class="top-player-card third-place" id="third-place">
-            <img id="profile" src="" alt="profile picture">
-            <img class="crown" src="imgs/silver.PNG" alt="Crown image">
             <div class="info"></div>
           </div>
         </div>
         <ol id="leaderboard-list" class="leaderboard-list"></ol>
       </div>
-    </div>
     </div>
   </div>
   <script src="js_folder/leaderboard.js"></script>

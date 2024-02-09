@@ -22,6 +22,7 @@ h1 {
 .currentUsername {
   padding: 0.5px;
 }
+
 .margin-left-20px {
   margin-left: 20px;
 }
@@ -180,19 +181,19 @@ button {
   margin: 5% 5%;
 }
 
-.logout-button {
+.logout-button, .delete-button {
+  font-size: 20px;
   height: auto;
   padding: 50px 100px;
   border-radius: 1000px;
   border: none;
-  background-color: #cae0f4;
+}
+
+.logout-button {
+  background-color: #939eef;
 }
 
 .delete-button {
-  height: auto;
-  padding: 50px 100px;
-  border-radius: 1000px;
-  border: none;
   background-color: #ff2a2a;
   color: white;
 }
@@ -509,6 +510,10 @@ ul.no-bullets {
   .split img {
     width: 100px;
     height: 100px;
+  }
+
+  .button-container {
+    margin: 5%;
   }
 
   button {

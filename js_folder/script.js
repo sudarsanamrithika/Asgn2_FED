@@ -105,6 +105,10 @@ function closePopup() {
   location.reload();
 }
 
+function goToGamePage() {
+  window.location.href = "game.html";
+}
+
 
 
 
