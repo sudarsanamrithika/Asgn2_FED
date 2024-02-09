@@ -1,7 +1,7 @@
 const APIURL = 'https://airplanegame-17aa.restdb.io/rest/accounts';
 const APIKEY = '65c61a19be534ae09fd9ef74';
 
-// Function to fetch all high scores from different accounts
+// fetch all high scores from different accounts
 async function fetchAllHighScores() {
     try {
         const response = await fetch(`${APIURL}?sort=highscore&dir=-1`, {
@@ -23,6 +23,7 @@ async function fetchAllHighScores() {
     }
 }
 
+// to create leaderboard when page loads
 async function renderLeaderboard() {
     const podium = document.getElementById('podium');
     const leaderboardList = document.getElementById('leaderboard-list');
@@ -30,15 +31,15 @@ async function renderLeaderboard() {
     leaderboardList.innerHTML = ''; 
 
     try {
-        // Fetch high scores
+        // fetch high scores
         const highScores = await fetchAllHighScores();
 
-        // Render podium (players in order of 2nd, 1st, and 3rd)
+        // render podium 
         for (let i = 0; i < Math.min(3, highScores.length); i++) {
             const player = highScores[i];
             const podiumElement = document.createElement('div');
             podiumElement.classList.add('top-player');
-            // Reorder podium
+            // order podium
             if (i === 1) {
                 podiumElement.textContent = '2nd. ' + player.username + ': ' + player.highscore;
             } else if (i === 0) {
@@ -49,7 +50,7 @@ async function renderLeaderboard() {
             podium.appendChild(podiumElement);
         }
 
-        // Render leaderboard data (remaining players)
+        // render leaderboard data for remaining players
         for (let i = 3; i < highScores.length; i++) {
             const listItem = document.createElement('li');
             listItem.textContent = (i + 1) + '. ' + highScores[i].username + ': ' + highScores[i].highscore;
@@ -61,11 +62,13 @@ async function renderLeaderboard() {
     }
 }
 
+// go to login page
 function goToLoginPage() {
     window.location.href="login.html";
 }
 
-function goToSignUp() {
+// go to sign up page
+function goToSignUpPage() {
     window.location.href = "signup.html";
 }
 

@@ -1,3 +1,4 @@
+// naming vars and consts
 const popupContainer = document.getElementById('popup-container');
 const loadingContainer = document.getElementById('loading-container');
 const closeBtn = document.getElementById('close-btn');
@@ -7,13 +8,16 @@ const delay = 5000;
 const apiUrl = 'https://airplanegame-17aa.restdb.io/rest/accounts';
 const apiKey = '65c61a19be534ae09fd9ef74';
 
+// to post new data to database
 function postData() {
+  // set base qualities
   const username = document.getElementById('username').value;
   const email = document.getElementById('email').value;
-  const profilePic = 'imgs/baseProfile.png';
-  const highScore = 0;
+  const profilePic = 'imgs/baseProfile.png'; 
+  const highScore = 0; 
   const quote = 'Lorem ipsum';
   
+  // post to database
   const formData = {
     username: document.getElementById('username').value,
     email: document.getElementById('email').value,
@@ -49,6 +53,7 @@ function postData() {
     popupContainer.classList.remove('hidden');
   });
   
+  // save in session storage to use across diff pages
   sessionStorage.setItem("email", email);
   sessionStorage.setItem("username", username);
   sessionStorage.setItem("profile", profilePic);
@@ -56,6 +61,7 @@ function postData() {
   sessionStorage.setItem("quote", quote);
 }
   
+// to login user
 function login() {
   const loginUsername = document.getElementById('login-username').value;
   const loginPassword = document.getElementById('login-password').value;
@@ -71,7 +77,7 @@ function login() {
   .then(data => {
     if (data.length > 0) {
       const userData = data[0];
-
+      // check is password is correct
       if (userData.password === loginPassword) {
         sessionStorage.setItem("email", userData.email);
         sessionStorage.setItem("profile", userData.profilePic);
@@ -85,7 +91,7 @@ function login() {
         }, delay);
       } else {
         console.log('Incorrect password. Login failed.');
-        popupContainer.classList.remove('hidden');
+        popupContainer.classList.remove('hidden'); // if error occur, pop up to notify user
       }
     } else {
 
@@ -96,15 +102,18 @@ function login() {
     popupContainer.classList.remove('hidden');
   });
 
+  // save in session storage to use in diff pages
   sessionStorage.setItem("username", loginUsername);
   sessionStorage.setItem("password", loginPassword);
 }
 
+// close pop up on click
 function closePopup() {
   popupContainer.classList.add('hidden');
   location.reload();
 }
 
+// go to game page 
 function goToGamePage() {
   window.location.href = "game.html";
 }

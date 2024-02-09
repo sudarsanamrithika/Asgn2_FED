@@ -1,3 +1,4 @@
+// naming vars and consts 
 const apiUrl = 'https://airplanegame-17aa.restdb.io/rest/accounts';
 const apiKey = '65c61a19be534ae09fd9ef74';
 
@@ -14,12 +15,14 @@ const imgSrc = sessionStorage.getItem('profile');
 const userQuote = sessionStorage.getItem('quote');
 const highscore = sessionStorage.getItem('highscore');
 
+// change txt content for specifc element ids
 cUser.textContent = `${currentUsername}`;
 profile.src = imgSrc;
 uEmail.textContent = `${currentEmail}`;
 uQuote.textContent = `${userQuote}`;
 highScore.textContent = `${highscore}`;
 
+// to delete an account 
 function deleteAccount(username) {
     fetch(`${apiUrl}?q={"username":"${username}"}`, {
         method: 'GET',
@@ -48,8 +51,8 @@ function deleteAccount(username) {
             console.log('Account deleted successfully.');
             deleteContainer.classList.remove('hidden');
             setTimeout(() => {
-              window.location.href = 'index.html';
-            }, 500044);
+                window.location.href = 'index.html';
+              }, 5000);
         } else {
             console.error('Error deleting account:', deletedResponse.statusText);
         }
@@ -57,15 +60,18 @@ function deleteAccount(username) {
     .catch(error => {
         console.error('Error deleting account:', error);
     });
-  }
+}
 
+// show pop up when delete button clicked 
 document.getElementById('delete-account-btn').addEventListener('click', function() {
     const username = sessionStorage.getItem('username'); 
+    // if corr, run delete acc 
     if (confirm('Are you sure you want to delete your account? This cannot be undone!')) {
       deleteAccount(username);  
     }
 });
 
+// to logout
 function logout() {
     window.location.href = "index.html";
 }
