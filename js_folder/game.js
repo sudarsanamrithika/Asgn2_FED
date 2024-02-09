@@ -1,5 +1,5 @@
-const aUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
-const aKey = '65b380d5802d9b35afa680d5';
+const aUrl = 'https://airplanegame-17aa.restdb.io/rest/accounts';
+const aKey = '65c61a19be534ae09fd9ef74';
 
 document.addEventListener('DOMContentLoaded', function () {
     const airplane = document.getElementById('airplane');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
     
     var score = 0;
-    var highScore = sessionStorage.getItem('highscore') || 0;
+    var highScore = sessionStorage.getItem('highscore');
     var newScore = 0;
     var gameOver = false;
     var collide = false;
@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         obstacle.addEventListener('animationiteration', function () {
             this.remove();
             increaseScore();
-            console.log(newScore);
         });
     }
   
@@ -114,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateHighScore(username, highScore) {
         if (collide === true)
         {
-            console.log('already run');
             return;
         }
         else 
@@ -191,11 +189,12 @@ document.addEventListener('DOMContentLoaded', function () {
         await new Promise((resolve) => setTimeout(resolve, 100)); // Adjust the timeout value as needed
     
         // Update the high score after all operations are completed
-        updateHighScore(username, newScore);
+        updateHighScore(username, sessionStorage.getItem('highcore'));
     }
   
     function resetGame() {
         score = 0;
+        collide = false;
         location.reload();
     }
   

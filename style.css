@@ -97,7 +97,7 @@ h1 {
 }
  
  .main-content {
-  margin: 10% 7%;
+  margin: 5% 7%;
   margin-bottom: 0%;
  }
  
@@ -122,6 +122,15 @@ h1 {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+}
+
+.navbar-brand {
+  font-family: 'VT323', monospace;
+  font-size: 50px;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'VT323', monospace;
 }
 
 /* Links inside the navbar */
@@ -279,10 +288,6 @@ button {
   background-color: #e6f7ff;
 }
 
-.navbar-brand {
-  font-size: 50px;
-}
-
 .image-row {
   display: flex;
   justify-content: space-around; 
@@ -290,10 +295,6 @@ button {
   padding-top: 0%;
 }
 
-.image-container {
-  position: relative;
-  max-width: 50%; 
-}
 
 .image-container img {
   width: 100%;
@@ -316,7 +317,7 @@ button {
   height: 400px;
   overflow: hidden;
   border: 2px solid #000;
-  background-color: #afeaff;
+  background-color: #aedffe;
 }
 
 .profile-section {
@@ -410,6 +411,14 @@ ul.no-bullets {
   margin-bottom: 20px;
 }
 
+.crown {
+  position: absolute;
+  top: -20px; /* Adjust this value to position the crown above the usernames */
+  left: 50%; /* Adjust this value to horizontally center the crown */
+  transform: translateX(-50%);
+  width: 30px; /* Adjust the width of the crown image as needed */
+}
+
 .top-player {
   font-family: 'VT323', monospace;
   font-size: 25px;
@@ -473,15 +482,24 @@ ul.no-bullets {
   visibility: hidden;
 }
 
+.image-container {
+  padding: 0% 10%;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+}
+
 .overlay-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(0, 0, 0);
-  font-size: 24px;
   text-align: center;
+  color: black;
 }
+
 
 @media screen and (max-width: 500px) {
   .container {
@@ -499,6 +517,14 @@ ul.no-bullets {
     border-radius: 100px;
     border: 2px solid rgb(168, 168, 168);
     background-color: #939eef;
+  }
+
+  .left-button, .right-button, .play-button {
+    height: auto;
+    padding: 20px 50px;
+    border-radius: 1000px;
+    border: none;
+    background-color: #b5d7ff;
   }
 
   .logout-button {

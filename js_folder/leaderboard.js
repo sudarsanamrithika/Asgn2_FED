@@ -1,5 +1,5 @@
-const APIURL = 'https://bookish-bdb3.restdb.io/rest/accounts';
-const APIKEY = '65b380d5802d9b35afa680d5';
+const APIURL = 'https://airplanegame-17aa.restdb.io/rest/accounts';
+const APIKEY = '65c61a19be534ae09fd9ef74';
 
 // Function to fetch all high scores from different accounts
 async function fetchAllHighScores() {

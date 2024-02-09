@@ -4,8 +4,8 @@ const closeBtn = document.getElementById('close-btn');
 const wBack = document.getElementById('welcome-back');
 const deleteContainer = document.getElementById('delete-container');
 const delay = 5000;
-const apiUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
-const apiKey = '65b380d5802d9b35afa680d5';
+const apiUrl = 'https://airplanegame-17aa.restdb.io/rest/accounts';
+const apiKey = '65c61a19be534ae09fd9ef74';
 
 function postData() {
   const username = document.getElementById('username').value;
@@ -88,12 +88,11 @@ function login() {
         popupContainer.classList.remove('hidden');
       }
     } else {
-      console.log('User not found. Login failed.');
+
       popupContainer.classList.remove('hidden');
     }
   })
   .catch(error => {
-    console.error('Error fetching user data:', error);
     popupContainer.classList.remove('hidden');
   });
 

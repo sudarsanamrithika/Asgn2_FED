@@ -1,5 +1,5 @@
-const apiUrl = 'https://bookish-bdb3.restdb.io/rest/accounts';
-const apiKey = '65b380d5802d9b35afa680d5';
+const apiUrl = 'https://airplanegame-17aa.restdb.io/rest/accounts';
+const apiKey = '65c61a19be534ae09fd9ef74';
 
 const highScore = document.getElementById('highscore');
 const uEmail = document.getElementById('userEmail');
