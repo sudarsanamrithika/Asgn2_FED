@@ -362,7 +362,8 @@ ul.no-bullets {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-size: cover;
+  background-size:contain;
+  background-repeat: no-repeat;
   animation: moveObstacle linear infinite;
 }
 

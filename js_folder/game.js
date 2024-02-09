@@ -88,8 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const obstacleImages = [
         'imgs/bird_flying.PNG',
-        'imgs/cloud_stats.PNG',
         'imgs/ufo.PNG',
+        'imgs/enemy_plane.PNG',
+        'imgs/cloud.PNG',
+        'imgs/cloud2.PNG'
     ];
     
     function checkCollision() {
